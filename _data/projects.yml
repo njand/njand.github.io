@@ -1,19 +1,19 @@
 - name: KindleDicts
-  link: https://github.com/yourusername/KindleDicts
+  link: https://github.com/njand/KindleDicts
   description: Downloads a dump of Wiktionary and creates a detailed .mobi dictionary for Kindle, preserving Latin macrons and handling complex morphology.
 
 - name: latin-macronizer
-  link: https://github.com/yourusername/latin-macronizer
+  link: https://github.com/njand/latin-macronizer
   description: Accepts text in Latin and returns it in normalized and macronized form.
 
 - name: personal_assistant
-  link: https://github.com/yourusername/personal_assistant
+  link: https://github.com/njand/personal_assistant
   description: An AI personal assistant that manages your schedule.
 
 - name: biblia-castellionis
-  link: https://github.com/yourusername/biblia-castellionis
+  link: https://github.com/njand/biblia-castellionis
   description: Manually transcribed and macronized selections from Sebastian Castellio's Latin Bible translation.
 
 - name: EtymologyDict
-  link: https://github.com/yourusername/EtymologyDict
+  link: https://github.com/njand/EtymologyDict
   description: Tools to create a dataset of etymological links between words on Wiktionary, and the resulting dataset.
