@@ -1,0 +1,14 @@
+# Mark site code as MIT-licensed
+*.html     license=MIT
+*.md       license=MIT
+*.yml      license=MIT
+assets/style.css license=MIT
+
+# Mark personal content as restricted
+assets/profile.jpg license=proprietary
+assets/CV.pdf      license=proprietary
+research.md        license=proprietary
+cv.md              license=proprietary
+
+# Default to MIT if not specified
+* license=MIT

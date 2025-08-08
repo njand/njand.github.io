@@ -1,0 +1,17 @@
+# Jekyll build output
+_site/
+
+# Temporary files
+*.log
+*.tmp
+
+# macOS files
+.DS_Store
+
+# VS Code or editor settings
+.vscode/
+.idea/
+
+# Ruby bundler files (for local use)
+vendor/
+.bundle/

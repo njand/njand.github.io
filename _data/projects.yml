@@ -1,0 +1,11 @@
+- name: Neural MT for Low-Resource Languages
+  link: https://github.com/yourusername/project1
+  description: Neural models for low-resource machine translation.
+
+- name: Discourse-Aware Summarization
+  link: https://github.com/yourusername/project2
+  description: Toolkit for generating summaries with discourse coherence.
+
+- name: Endangered Language NLP Pipeline
+  link: https://github.com/yourusername/project3
+  description: Morphological and syntactic analysis tools for under-documented languages.
