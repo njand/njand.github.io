@@ -1,11 +1,19 @@
-- name: Neural MT for Low-Resource Languages
-  link: https://github.com/yourusername/project1
-  description: Neural models for low-resource machine translation.
+- name: KindleDicts
+  link: https://github.com/yourusername/KindleDicts
+  description: Downloads a dump of Wiktionary and creates a detailed .mobi dictionary for Kindle, preserving Latin macrons and handling complex morphology.
 
-- name: Discourse-Aware Summarization
-  link: https://github.com/yourusername/project2
-  description: Toolkit for generating summaries with discourse coherence.
+- name: latin-macronizer
+  link: https://github.com/yourusername/latin-macronizer
+  description: Accepts text in Latin and returns it in normalized and macronized form.
 
-- name: Endangered Language NLP Pipeline
-  link: https://github.com/yourusername/project3
-  description: Morphological and syntactic analysis tools for under-documented languages.
+- name: personal_assistant
+  link: https://github.com/yourusername/personal_assistant
+  description: An AI personal assistant that manages your schedule.
+
+- name: biblia-castellionis
+  link: https://github.com/yourusername/biblia-castellionis
+  description: Manually transcribed and macronized selections from Sebastian Castellio's Latin Bible translation.
+
+- name: EtymologyDict
+  link: https://github.com/yourusername/EtymologyDict
+  description: Tools to create a dataset of etymological links between words on Wiktionary, and the resulting dataset.
