@@ -1,0 +1,14 @@
+{
+  "name": "nathan-anderson-portfolio",
+  "version": "2.0.0",
+  "description": "Single-page portfolio website for Nathan Anderson - Applied NLP Researcher & AI Product Lead",
+  "scripts": {
+    "build:css": "tailwindcss -i ./assets/css/style.css -o ./assets/css/main.css --minify",
+    "watch:css": "tailwindcss -i ./assets/css/style.css -o ./assets/css/main.css --watch"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3"
+  }
+}

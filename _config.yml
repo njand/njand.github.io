@@ -1,5 +1,18 @@
-title: "Nathan Anderson – Computational Linguist"
-description: "Computational Linguist | Language Technologies Product Manager | CMU-LTI Alum"
+title: "Nathan Anderson – Applied NLP Researcher & AI Product Lead"
+description: "CMU LTI M.S. graduate specializing in multilingual LLM evaluation, low-resource speech recognition, and computer assisted language learning."
+url: "https://njand.github.io"
 baseurl: ""
-url: "https://yourusername.github.io"
-theme: minima
+
+# Jekyll Build Settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:title/
+
+# Exclude node_modules and configuration from Jekyll build
+exclude:
+  - package.json
+  - package-lock.json
+  - tailwind.config.js
+  - node_modules/
+  - Vendor/
+  - .github/

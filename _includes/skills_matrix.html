@@ -1,0 +1,46 @@
+<section id="skills" class="scroll-mt-24 space-y-8">
+    <div>
+        <div class="text-xs font-mono uppercase tracking-wider text-sky-400 font-semibold">Technical Profile</div>
+        <h2 class="text-3xl font-bold text-slate-50 mt-1">Skills & Competency Matrix</h2>
+    </div>
+
+    <!-- Skill Filter Tabs -->
+    <div class="flex flex-wrap gap-2 border-b border-slate-800 pb-4" id="skills-filter">
+        <button data-filter="all" class="skill-tab active px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-sky-500 text-slate-900 transition-all">All Capabilities</button>
+        <button data-filter="modeling" class="skill-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Modeling & NLP</button>
+        <button data-filter="speech" class="skill-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Speech & Audio</button>
+        <button data-filter="ops" class="skill-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Deployment & Ops</button>
+        <button data-filter="languages" class="skill-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Human Languages</button>
+    </div>
+
+    <!-- Skills Grid -->
+    <div class="grid md:grid-cols-2 gap-4" id="skills-grid">
+        <div class="skill-card p-5 rounded-xl bg-slate-800/80 border border-slate-700/60" data-category="modeling">
+            <div class="text-xs font-mono text-sky-400 uppercase tracking-wider font-semibold">Modeling & NLP</div>
+            <div class="mt-2 text-sm text-slate-200 font-medium leading-relaxed">
+                PyTorch, Hugging Face (Transformers, PEFT/LoRA), mmBERT, <code class="text-xs font-mono text-sky-300">spaCy</code>, Stanza, <code class="text-xs font-mono text-sky-300">scikit-learn</code>, XGBoost, OpenAI API, Jupyter
+            </div>
+        </div>
+
+        <div class="skill-card p-5 rounded-xl bg-slate-800/80 border border-slate-700/60" data-category="speech">
+            <div class="text-xs font-mono text-sky-400 uppercase tracking-wider font-semibold">Speech & Audio Engineering</div>
+            <div class="mt-2 text-sm text-slate-200 font-medium leading-relaxed">
+                Praat, Azure Speech-to-Text, <code class="text-xs font-mono text-sky-300">wav2vec2</code>, Whisper / WhisperX, <code class="text-xs font-mono text-sky-300">pyannote.audio</code>, Metrics (WER, CER, PER)
+            </div>
+        </div>
+
+        <div class="skill-card p-5 rounded-xl bg-slate-800/80 border border-slate-700/60" data-category="ops">
+            <div class="text-xs font-mono text-sky-400 uppercase tracking-wider font-semibold">Deployment & Developer Tools</div>
+            <div class="mt-2 text-sm text-slate-200 font-medium leading-relaxed">
+                Azure ML Studio, Linux / CLI, Git, SQL, Gradio, Flask, <code class="text-xs font-mono text-sky-300">PDFPlumber</code>, PyQt, Jira / Agile
+            </div>
+        </div>
+
+        <div class="skill-card p-5 rounded-xl bg-slate-800/80 border border-slate-700/60" data-category="languages">
+            <div class="text-xs font-mono text-sky-400 uppercase tracking-wider font-semibold">Human Language Proficiency</div>
+            <div class="mt-2 text-sm text-slate-200 font-medium leading-relaxed">
+                English (Native), Portuguese (Advanced), Spanish (Advanced), Latin (Advanced), Turkish (Intermediate), Indonesian (Intermediate), Choctaw (Elementary)
+            </div>
+        </div>
+    </div>
+</section>

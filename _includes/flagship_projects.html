@@ -1,0 +1,153 @@
+<section id="flagships" class="scroll-mt-24 space-y-12">
+    <div>
+        <div class="text-xs font-mono uppercase tracking-wider text-sky-400 font-semibold">Production Machine Learning</div>
+        <h2 class="text-3xl font-bold text-slate-50 mt-1">Flagship Systems & Architecture Case Studies</h2>
+    </div>
+
+    <!-- Case Study 1 -->
+    <div class="p-6 md:p-8 rounded-2xl bg-slate-800/90 border border-slate-700/80 shadow-xl space-y-6 hover:border-slate-600 transition-all">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-700 pb-4">
+            <div>
+                <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">Production CALL System</span>
+                <h3 class="text-2xl font-bold text-slate-50 mt-2">Automated Multilingual Language Proficiency Assessment System</h3>
+            </div>
+            <div class="text-xs text-slate-400 font-mono">Role: Lead ML Researcher & Product Manager</div>
+        </div>
+
+        <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-900 text-sky-400 border border-slate-700">PyTorch</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-900 text-sky-400 border border-slate-700">mmBERT</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-900 text-sky-400 border border-slate-700">PEFT / LoRA</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-900 text-sky-400 border border-slate-700">Praat</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-900 text-sky-400 border border-slate-700">spaCy</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-900 text-sky-400 border border-slate-700">Azure ML Studio</span>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-3">
+                <h4 class="text-sm font-semibold text-slate-200 uppercase tracking-wide">The Challenge & Problem</h4>
+                <p class="text-sm text-slate-400 leading-relaxed">
+                    Replaced an expensive legacy vendor system ($300k/year) restricted to only 9 languages that suffered from poor scoring correlation with human OPIc/ACTFL raters (0.36 Quadratic Weighted Kappa).
+                </p>
+                <h4 class="text-sm font-semibold text-slate-200 uppercase tracking-wide pt-2">System Architecture</h4>
+                <ul class="text-sm text-slate-400 space-y-2 list-disc list-inside">
+                    <li><strong class="text-slate-300">Preprocessing:</strong> Azure batch pipeline extracting acoustic features via Praat (pitch, jitter, pause cadence) and syntactic features via <code class="text-xs font-mono text-sky-300">spaCy</code>.</li>
+                    <li><strong class="text-slate-300">Modeling Pipeline:</strong> Fine-tuned Multilingual Modern BERT (<code class="text-xs font-mono text-sky-300">mmBERT</code>) using a 3-stage transfer learning regime with parameter-efficient <code class="text-xs font-mono text-sky-300">LoRA</code> adapters per target language.</li>
+                </ul>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-700/50 space-y-4">
+                <h4 class="text-sm font-semibold text-emerald-400 uppercase tracking-wide">Validated Production Metrics</h4>
+                <div class="grid grid-cols-2 gap-3 text-center">
+                    <div class="p-3 bg-slate-800 rounded-lg border border-slate-700">
+                        <div class="text-xs text-slate-400">Quadratic Weighted Kappa</div>
+                        <div class="text-xl font-bold text-emerald-400 font-mono mt-1">0.86 <span class="text-xs text-slate-500 font-normal">(vs 0.36)</span></div>
+                    </div>
+                    <div class="p-3 bg-slate-800 rounded-lg border border-slate-700">
+                        <div class="text-xs text-slate-400">Spearman Correlation</div>
+                        <div class="text-xl font-bold text-emerald-400 font-mono mt-1">0.86 <span class="text-xs text-slate-500 font-normal">(vs 0.44)</span></div>
+                    </div>
+                    <div class="p-3 bg-slate-800 rounded-lg border border-slate-700">
+                        <div class="text-xs text-slate-400">Mean Absolute Error</div>
+                        <div class="text-xl font-bold text-emerald-400 font-mono mt-1">0.55 <span class="text-xs text-slate-500 font-normal">(vs 0.68)</span></div>
+                    </div>
+                    <div class="p-3 bg-slate-800 rounded-lg border border-slate-700">
+                        <div class="text-xs text-slate-400">Cost Reduction</div>
+                        <div class="text-xl font-bold text-emerald-400 font-mono mt-1">~75%</div>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-400 italic">
+                    Successfully scaled across 70+ languages, enabling zero-shot/few-shot automated scoring for previously un-evaluated low-resource target languages.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Case Study 2 -->
+    <div id="latin-asr-demo" class="p-6 md:p-8 rounded-2xl bg-slate-800/90 border border-slate-700/80 shadow-xl space-y-6 hover:border-slate-600 transition-all scroll-mt-28">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-700 pb-4">
+            <div>
+                <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Open Source & Live Demo</span>
+                <h3 class="text-2xl font-bold text-slate-50 mt-2">Classical Latin Speech Recognition (ASR) & ITN Pipeline</h3>
+            </div>
+            <div class="text-xs text-slate-400 font-mono">Role: Author & Model Creator</div>
+        </div>
+
+        <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-900 text-sky-400 border border-slate-700">wav2vec2</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-900 text-sky-400 border border-slate-700">Inverse Text Normalization</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-900 text-sky-400 border border-slate-700">Hugging Face</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-900 text-sky-400 border border-slate-700">Gradio</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-900 text-sky-400 border border-slate-700">PyTorch</span>
+        </div>
+
+        <p class="text-sm text-slate-400 leading-relaxed">
+            Curated and hand-transcribed a 10-hour gold-standard audio dataset of spoken Classical Latin. Fine-tuned acoustic <code class="text-xs font-mono text-sky-300">wav2vec2</code> models paired with a secondary Inverse Text Normalization (ITN) model to automatically restore casing, macrons, and punctuation on raw acoustic predictions.
+        </p>
+
+        <!-- Interactive HuggingFace Embed Wrapper -->
+        <div class="relative w-full rounded-xl overflow-hidden border border-slate-700 bg-slate-900 min-h-[380px] flex items-center justify-center">
+            <div id="hf-placeholder" class="text-center p-6 space-y-4">
+                <div class="w-12 h-12 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center mx-auto text-sky-400">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"/></svg>
+                </div>
+                <div>
+                    <h4 class="text-base font-semibold text-slate-200">Interactive Latin Speech Recognition Demo</h4>
+                    <p class="text-xs text-slate-400 max-w-md mx-auto mt-1">Load the Hugging Face Space model container to record audio or upload sample files for live inference.</p>
+                </div>
+                <button id="load-hf-space-btn" class="px-4 py-2 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-900 text-xs font-semibold transition-all">
+                    Launch Live Model Demo
+                </button>
+            </div>
+            <iframe id="hf-space-iframe" class="hidden w-full h-[450px] border-0" title="Latin ASR Gradio Demo"></iframe>
+        </div>
+    </div>
+
+    <!-- Case Study 3 -->
+    <div class="p-6 md:p-8 rounded-2xl bg-slate-800/90 border border-slate-700/80 shadow-xl space-y-6 hover:border-slate-600 transition-all">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-700 pb-4">
+            <div>
+                <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">Production AI System</span>
+                <h3 class="text-2xl font-bold text-slate-50 mt-2">Multilingual Grammatical Error Correction & Practice System</h3>
+            </div>
+            <div class="text-xs text-slate-400 font-mono">Role: Product Manager & Lead ML Researcher</div>
+        </div>
+
+        <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-900 text-sky-400 border border-slate-700">spaCy Pipelines</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-900 text-sky-400 border border-slate-700">Multilingual GEC</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-900 text-sky-400 border border-slate-700">BERT Safety Classifier</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-900 text-sky-400 border border-slate-700">Data Mining</span>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-3">
+                <h4 class="text-sm font-semibold text-slate-200 uppercase tracking-wide">System Architecture & Engineering</h4>
+                <p class="text-sm text-slate-400 leading-relaxed">
+                    Directed the architecture and strategy for interactive feedback workflows and practice chatbots. Built parallelized data extraction pipelines and content safety classifiers across dozens of target languages.
+                </p>
+                <ul class="text-sm text-slate-400 space-y-2 list-disc list-inside">
+                    <li><strong class="text-slate-300">Data Mining Pipeline:</strong> Engineered parallelized <code class="text-xs font-mono text-sky-300">spaCy</code> filtering pipelines processing large-scale text corpora across diverse orthographies.</li>
+                    <li><strong class="text-slate-300">Safety & Quality Control:</strong> Fine-tuned custom BERT safety classification models to moderate interactive practice dialogs and output validation.</li>
+                </ul>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-700/50 space-y-4">
+                <h4 class="text-sm font-semibold text-emerald-400 uppercase tracking-wide">Production Scale & Impact</h4>
+                <div class="grid grid-cols-2 gap-3 text-center">
+                    <div class="p-3 bg-slate-800 rounded-lg border border-slate-700">
+                        <div class="text-xs text-slate-400">Validated Languages</div>
+                        <div class="text-xl font-bold text-emerald-400 font-mono mt-1">41</div>
+                    </div>
+                    <div class="p-3 bg-slate-800 rounded-lg border border-slate-700">
+                        <div class="text-xs text-slate-400">Active User Scale</div>
+                        <div class="text-xl font-bold text-emerald-400 font-mono mt-1">10,000s+</div>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-400 italic">
+                    Architected feedback validation pipelines allowing research teams to generate high-quality parallel training data and benchmark real-time feedback across low-resource target languages.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

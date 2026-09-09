@@ -1,16 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title | default: site.title }}</title>
-    <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+    <meta name="description" content="{{ site.description }}">
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="{{ page.title | default: site.title }}">
+    <meta property="og:description" content="{{ site.description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:image" content="{{ '/assets/images/og-card.jpg' | absolute_url }}">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/favicon.svg' | relative_url }}">
+
+    <!-- Compiled Tailwind Styles -->
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    
+    {% include analytics.html %}
 </head>
-<body>
+<body class="bg-slate-900 text-slate-50 font-sans antialiased selection:bg-sky-500 selection:text-slate-900">
     {% include header.html %}
-    <main>
+    
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 space-y-28">
         {{ content }}
     </main>
+
     {% include footer.html %}
+    
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
 </html>
