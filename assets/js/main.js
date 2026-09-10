@@ -85,8 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
             hfPlaceholder.classList.add('hidden');
             hfIframe.classList.remove('hidden');
 
-            if (typeof plausible === 'function') {
-                plausible('Interactive Demo Loaded');
+            if (typeof umami !== 'undefined') {
+                umami.track('Interactive Demo Loaded');
             }
         });
     }
@@ -95,16 +95,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const downloadBtn = document.querySelector('#download-cv-btn');
     if (downloadBtn) {
         downloadBtn.addEventListener('click', () => {
-            if (typeof plausible === 'function') {
-                plausible('CV Download', { props: { source: 'Header / Hero' } });
+            if (typeof umami !== 'undefined') {
+                umami.track('CV Download', { source: 'Header / Hero' } );
             }
         });
     }
 
     document.querySelectorAll('.outbound-github').forEach(link => {
         link.addEventListener('click', function() {
-            if (typeof plausible === 'function') {
-                plausible('GitHub Outbound Click', { props: { repo: this.href } });
+            if (typeof umami !== 'undefined') {
+                umami.track('GitHub Outbound Click', { repo: this.href });
             }
         });
     });

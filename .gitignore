@@ -16,6 +16,9 @@ _site/
 vendor/
 .bundle/
 
+# Node modules
+node_modules/
+
 # Codefetch
 codefetch/
 codefetch.config.mjs
