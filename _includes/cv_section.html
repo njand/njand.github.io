@@ -1,53 +1,58 @@
 <section id="experience" class="scroll-mt-24 space-y-8">
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-            <div class="text-xs font-mono uppercase tracking-wider text-sky-400 font-semibold">Career & Education</div>
+            <div class="text-xs font-mono uppercase tracking-wider text-sky-400 font-semibold">Career & Academic Path</div>
             <h2 class="text-3xl font-bold text-slate-50 mt-1">Professional Experience</h2>
         </div>
-        <a href="{{ '/assets/pdf/Nathan_Anderson_CV.pdf' | relative_url }}" target="_blank" download class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 text-xs font-semibold transition-all shadow-md">
+        <a href="{{ '/assets/pdf/Nathan_Anderson_CV.pdf' | relative_url }}" target="_blank" download class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 text-xs font-semibold transition-all shadow-md hover:border-sky-500/40">
             <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-            Download Resume
+            Download Full Resume
         </a>
     </div>
 
     <!-- Timeline Wrapper -->
     <div class="space-y-6 border-l-2 border-slate-800 ml-3 pl-6">
         
-        <!-- Role 1 -->
+        <!-- Role 1: Manager / Lead Research -->
         <div class="relative group">
             <div class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-sky-500 ring-4 ring-slate-950"></div>
             <div class="p-6 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3 hover:border-sky-500/30 transition-all">
                 <div class="flex flex-wrap justify-between items-start gap-2">
                     <div>
-                        <h3 class="text-lg font-bold text-slate-100">Product Manager of NLP Research</h3>
+                        <h3 class="text-lg font-bold text-slate-100">Product Manager & Lead NLP Researcher</h3>
                         <div class="text-sm text-sky-400 font-medium">Provo MTC — The Church of Jesus Christ of Latter-day Saints</div>
                     </div>
-                    <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-950 text-slate-400 border border-slate-800">2022 – Present | Remote</span>
+                    <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-950 text-slate-400 border border-slate-800">2022 – Present | Remote (Tulsa, OK)</span>
                 </div>
                 <p class="text-xs text-slate-300 leading-relaxed">
-                    Direct applied NLP research, product strategy, and ML operations across 70+ languages. Lead team of up to 8 Research Assistants executing hands-on modeling and data pipelines.
+                    Lead applied NLP research, product strategy, and ML operations across 70+ languages. Direct a team of up to 8 Research Assistants executing hands-on modeling, corpus mining, and SLA pipeline architectures.
                 </p>
-                <button type="button" class="experience-toggle-btn text-xs font-mono text-sky-400 hover:text-sky-300 flex items-center gap-1 focus:outline-none pt-1">
+                
+                <button type="button" class="experience-toggle-btn text-xs font-mono text-sky-400 hover:text-sky-300 flex items-center gap-1.5 focus:outline-none pt-1">
                     <span>View Deep-Dive & Tech Stack</span>
-                    <svg class="w-3.5 h-3.5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    <svg class="w-3.5 h-3.5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </button>
-                <div class="experience-details hidden space-y-3 pt-2 border-t border-slate-800/80">
-                    <ul class="space-y-2 list-disc list-inside text-slate-300 text-xs">
-                        <li>Architected interactive Grammatical Error Correction (GEC) feedback workflows validated for 41 languages serving tens of thousands of active learners.</li>
-                        <li>Built interactive practice chatbot prototype with dynamic persona generation across 10+ validation languages.</li>
-                        <li>Engineered massive multilingual data mining pipeline using parallelized <code class="text-xs font-mono text-sky-300 bg-slate-950 px-1 py-0.5 rounded">spaCy</code> filtering and fine-tuned BERT safety classification models.</li>
+
+                <div class="experience-details hidden space-y-3 pt-3 border-t border-slate-800/80">
+                    <ul class="space-y-2 text-slate-300 text-xs list-disc list-inside">
+                        <li><strong class="text-slate-100">Automated Language Assessment:</strong> Built a 3-stage transfer learning pipeline (mmBERT + LoRA) replacing a $300k/year legacy vendor tool across 70+ languages, achieving a Quadratic Weighted Kappa of <span class="text-sky-400 font-semibold">0.86</span> (vs vendor 0.36) and reducing MAE to <span class="text-sky-400 font-semibold">0.55</span>.</li>
+                        <li><strong class="text-slate-100">Multilingual GEC & SLA Feedback:</strong> Engineered interactive Grammatical Error Correction workflows with structured output parsing (OpenAI API) across 41 validated languages, serving tens of thousands of active users.</li>
+                        <li><strong class="text-slate-100">Conversational AI Practice Engine:</strong> Architected interactive scenario-based chatbots featuring dynamic persona generation and automated safety guardrail termination hooks.</li>
+                        <li><strong class="text-slate-100">Data Curation & Safety Pipeline:</strong> Mined millions of sentences using parallelized <code class="text-[11px] font-mono text-sky-300 bg-slate-950 px-1 py-0.5 rounded">spaCy</code> filtering and fine-tuned custom BERT classification models to filter out inappropriate contexts.</li>
                     </ul>
-                    <div class="flex flex-wrap gap-1.5 pt-1">
+                    <div class="flex flex-wrap gap-1.5 pt-2">
                         <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">PyTorch</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Hugging Face Transformers</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">LoRA / PEFT</span>
                         <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">spaCy</span>
-                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">BERT</span>
-                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Azure ML</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Azure ML Studio</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">OpenAI API</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Role 2 -->
+        <!-- Role 2: Lowe's -->
         <div class="relative group">
             <div class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-slate-600 ring-4 ring-slate-950"></div>
             <div class="p-6 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3 hover:border-sky-500/30 transition-all">
@@ -59,27 +64,31 @@
                     <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-950 text-slate-400 border border-slate-800">Summer 2021 | Remote</span>
                 </div>
                 <p class="text-xs text-slate-300 leading-relaxed">
-                    Engineered pairwise attribute compatibility models for complementary product recommendations using Siamese Neural Networks and K-Means training set formulation. Received full-time return offer.
+                    Engineered pairwise attribute compatibility models for complementary product recommendations across large catalog offerings. Received full-time return offer.
                 </p>
-                <button type="button" class="experience-toggle-btn text-xs font-mono text-sky-400 hover:text-sky-300 flex items-center gap-1 focus:outline-none pt-1">
+
+                <button type="button" class="experience-toggle-btn text-xs font-mono text-sky-400 hover:text-sky-300 flex items-center gap-1.5 focus:outline-none pt-1">
                     <span>View Deep-Dive & Tech Stack</span>
-                    <svg class="w-3.5 h-3.5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    <svg class="w-3.5 h-3.5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </button>
-                <div class="experience-details hidden space-y-3 pt-2 border-t border-slate-800/80">
-                    <ul class="space-y-2 list-disc list-inside text-slate-300 text-xs">
-                        <li>Formulated automated dataset clustering pipelines using K-Means to identify latent product attribute compatibility.</li>
-                        <li>Designed Siamese Neural Network architecture in PyTorch to output dense vector embeddings for product pairing recommendations.</li>
+
+                <div class="experience-details hidden space-y-3 pt-3 border-t border-slate-800/80">
+                    <ul class="space-y-2 text-slate-300 text-xs list-disc list-inside">
+                        <li><strong class="text-slate-100">Siamese Neural Network Architecture:</strong> Designed and trained deep pairwise embedding models in PyTorch to compute attribute similarity across complementary items (e.g., matching appliances to compatible connectors).</li>
+                        <li><strong class="text-slate-100">Unsupervised Pipeline Formulation:</strong> Formulated automated K-Means clustering routines to construct structured pairwise training sets from raw e-commerce metadata.</li>
                     </ul>
-                    <div class="flex flex-wrap gap-1.5 pt-1">
-                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Siamese Networks</span>
+                    <div class="flex flex-wrap gap-1.5 pt-2">
                         <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">PyTorch</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Siamese Networks</span>
                         <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">K-Means</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">scikit-learn</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Pandas</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Role 3 -->
+        <!-- Role 3: NLP Research Intern -->
         <div class="relative group">
             <div class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-slate-600 ring-4 ring-slate-950"></div>
             <div class="p-6 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3 hover:border-sky-500/30 transition-all">
@@ -91,43 +100,124 @@
                     <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-950 text-slate-400 border border-slate-800">Summer 2019 | Riverside, UT</span>
                 </div>
                 <p class="text-xs text-slate-300 leading-relaxed">
-                    Designed proof-of-concept Speech-to-Speech translation (S2ST) pipelines across 38 languages. Decreased English ASR WER from 7.2% to 3.3% using in-domain, curated training data and engineered teleprompter streaming transcript alignment algorithms.
+                    Designed proof-of-concept Speech-to-Speech Translation (S2ST) pipelines across 38 languages and optimized real-time streaming speech alignment algorithms.
                 </p>
+
+                <button type="button" class="experience-toggle-btn text-xs font-mono text-sky-400 hover:text-sky-300 flex items-center gap-1.5 focus:outline-none pt-1">
+                    <span>View Deep-Dive & Tech Stack</span>
+                    <svg class="w-3.5 h-3.5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+
+                <div class="experience-details hidden space-y-3 pt-3 border-t border-slate-800/80">
+                    <ul class="space-y-2 text-slate-300 text-xs list-disc list-inside">
+                        <li><strong class="text-slate-100">Acoustic Fine-Tuning:</strong> Curated and formatted 50 hours of domain-specific audio data to fine-tune Azure STT models, cutting Word Error Rate (WER) from <span class="text-sky-400 font-semibold">7.2% to 3.3%</span>.</li>
+                        <li><strong class="text-slate-100">Streaming Transcript Alignment:</strong> Engineered a low-latency dynamic programming algorithm matching live partial speech to candidate transcript windows, bypassing ASR noise.</li>
+                        <li><strong class="text-slate-100">Control Interface Application:</strong> Built a native <code class="text-[11px] font-mono text-sky-300 bg-slate-950 px-1 py-0.5 rounded">PyQt</code> desktop application featuring dynamic audio fading and streaming synchronization for live events.</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-1.5 pt-2">
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Azure STT</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">PyQt</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Dynamic Programming</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Speech-to-Speech Translation</span>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Education 1 -->
+        <!-- Education 1: CMU -->
         <div class="relative group">
             <div class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-slate-600 ring-4 ring-slate-950"></div>
-            <div class="p-6 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
+            <div class="p-6 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3 hover:border-sky-500/30 transition-all">
                 <div class="flex flex-wrap justify-between items-start gap-2">
                     <div>
                         <h3 class="text-base font-bold text-slate-100">M.S. in Language Technologies</h3>
-                        <div class="text-xs text-sky-400 font-medium">Carnegie Mellon University (CMU LTI)</div>
+                        <div class="text-xs text-sky-400 font-medium">Carnegie Mellon University — Language Technologies Institute (LTI)</div>
                     </div>
                     <span class="text-xs font-mono text-slate-400">2020 – 2022</span>
                 </div>
-                <p class="text-xs text-slate-400">
-                    Coursework & Research: Multilingual NLP, Morphological Modeling, Personalized Online Learning, Speech & Audio Processing.
+                <p class="text-xs text-slate-300 leading-relaxed">
+                    Specialized in computational linguistics, multilingual speech/text processing, and second language acquisition algorithms.
                 </p>
+
+                <button type="button" class="experience-toggle-btn text-xs font-mono text-sky-400 hover:text-sky-300 flex items-center gap-1.5 focus:outline-none pt-1">
+                    <span>View Highlights & Tech Stack</span>
+                    <svg class="w-3.5 h-3.5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+
+                <div class="experience-details hidden space-y-3 pt-3 border-t border-slate-800/80">
+                    <ul class="space-y-2 text-slate-300 text-xs list-disc list-inside">
+                        <li><strong class="text-slate-100">Research Focus:</strong> Morphological modeling of low-resource languages (Nahuatl, Mixtec), cognate/etymology identification, and semantic taxonomy acquisition in language models.</li>
+                        <li><strong class="text-slate-100">Shared Task Benchmark:</strong> Awarded 3rd place in SIGMORPHON Shared Task on analogical morphology for nonce words.</li>
+                        <li><strong class="text-slate-100">Core Coursework:</strong> Algorithms for NLP, Multilingual NLP, Personalized Online Learning, Advanced Readings in Linguistics.</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-1.5 pt-2">
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Multilingual NLP</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Morphological Modeling</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">PyTorch</span>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Education 2 -->
+        <!-- Education 2: BYU -->
         <div class="relative group">
             <div class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-slate-600 ring-4 ring-slate-950"></div>
-            <div class="p-6 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
+            <div class="p-6 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3 hover:border-sky-500/30 transition-all">
                 <div class="flex flex-wrap justify-between items-start gap-2">
                     <div>
                         <h3 class="text-base font-bold text-slate-100">B.A. in Linguistics</h3>
-                        <div class="text-xs text-sky-400 font-medium">Brigham Young University (BYU)</div>
+                        <div class="text-xs text-sky-400 font-medium">Brigham Young University</div>
                     </div>
                     <span class="text-xs font-mono text-slate-400">2013 – 2020</span>
                 </div>
-                <p class="text-xs text-slate-400">
-                    Minors: Computer Science & Linguistic Computing. Awards: Full-Tuition Scholarship, FLAS Scholarships, Boren Scholar. TA for CS 312 (Algorithm Design).
+                <p class="text-xs text-slate-300 leading-relaxed">
+                    Minors in Computer Science & Linguistic Computing. Recipient of Full-Tuition Scholarship, 2 FLAS Summer Scholarships, and Boren Scholarship.
                 </p>
+
+                <button type="button" class="experience-toggle-btn text-xs font-mono text-sky-400 hover:text-sky-300 flex items-center gap-1.5 focus:outline-none pt-1">
+                    <span>View Highlights & Tech Stack</span>
+                    <svg class="w-3.5 h-3.5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+
+                <div class="experience-details hidden space-y-3 pt-3 border-t border-slate-800/80">
+                    <ul class="space-y-2 text-slate-300 text-xs list-disc list-inside">
+                        <li><strong class="text-slate-100">Academic Honors & Fellowships:</strong> Full-Tuition Scholarship (4 Years), FLAS Scholarships (Indonesian, Portuguese), Boren Scholarship (Turkish).</li>
+                        <li><strong class="text-slate-100">Teaching Assistant:</strong> TA for <code class="text-[11px] font-mono text-sky-300 bg-slate-950 px-1 py-0.5 rounded">CS 312: Algorithm Design and Analysis</code> (2 semesters).</li>
+                        <li><strong class="text-slate-100">Undergraduate Research:</strong> Co-authored human-swarm interaction research funded by DoD grant (Published in Springer LNCS).</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-1.5 pt-2">
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Algorithms</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Linguistic Computing</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">C++</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Python</span>
+                    </div>
+                </div>
             </div>
         </div>
+
     </div>
 </section>
+
+<!-- Inline JavaScript Toggle Engine -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.experience-toggle-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const parent = btn.closest('.space-y-3');
+                const details = parent.querySelector('.experience-details');
+                const svg = btn.querySelector('svg');
+
+                if (details) {
+                    details.classList.toggle('hidden');
+                    svg.classList.toggle('rotate-180');
+                    
+                    const span = btn.querySelector('span');
+                    if (span) {
+                        const isExpanded = !details.classList.contains('hidden');
+                        span.textContent = isExpanded ? 'Hide Deep-Dive' : 'View Deep-Dive & Tech Stack';
+                    }
+                }
+            });
+        });
+    });
+</script>
