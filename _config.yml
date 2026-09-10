@@ -1,5 +1,5 @@
-title: "Nathan Anderson – Applied NLP Researcher & AI Product Lead"
-description: "CMU LTI M.S. graduate specializing in multilingual LLM evaluation, low-resource speech recognition, and computer assisted language learning."
+title: "Nathan Anderson – Applied NLP Research Lead"
+description: "CMU LTI M.S. graduate specializing in multilingual LLM evaluation, low-resource speech recognition (ASR), and automated language assessment."
 url: "https://njand.github.io"
 baseurl: ""
 
@@ -16,3 +16,8 @@ exclude:
   - node_modules/
   - Vendor/
   - .github/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap

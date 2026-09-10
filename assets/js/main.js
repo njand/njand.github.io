@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const filter = btn.getAttribute('data-filter');
             skillCards.forEach(card => {
                 if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                    card.style.display = 'block';
+                    card.style.display = ''; // Restores default grid item display
                 } else {
                     card.style.display = 'none';
                 }
@@ -74,15 +74,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. Interactive HF Space Lazy Loading Wrapper Button
-    const loadHfBtn = document.querySelector('#load-hf-space-btn');
+    // 4. Interactive HF Space Deferred Loading
+    const loadHfBtn = document.querySelector('#load-hf-space-btn') || document.querySelector('#load-demo-btn');
     const hfPlaceholder = document.querySelector('#hf-placeholder');
     const hfIframe = document.querySelector('#hf-space-iframe');
 
     if (loadHfBtn && hfIframe) {
         loadHfBtn.addEventListener('click', () => {
-            hfIframe.src = "https://hf.space/embed/njand/latin-asr-demo/+/";
-            hfPlaceholder.classList.add('hidden');
+            const targetSrc = hfIframe.getAttribute('data-src') || "https://njand-latin-asr-demo.hf.space";
+            if (!hfIframe.src || hfIframe.src === window.location.href) {
+                hfIframe.src = targetSrc;
+            }
+            if (hfPlaceholder) {
+                hfPlaceholder.classList.add('hidden');
+            }
+            loadHfBtn.classList.add('hidden');
             hfIframe.classList.remove('hidden');
 
             if (typeof umami !== 'undefined') {
@@ -91,20 +97,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Analytics Custom Event Listeners
+    // 5. Email CTA Initialization
+    const emailBtn = document.getElementById('email-cta');
+    if (emailBtn) {
+        const user = emailBtn.getAttribute('data-user');
+        const domain = emailBtn.getAttribute('data-domain');
+        if (user && domain) {
+            emailBtn.href = `mailto:${user}@${domain}`;
+        }
+    }
+
+    // 6. Analytics Event Listeners & Navigation
     const downloadBtn = document.querySelector('#download-cv-btn');
     if (downloadBtn) {
         downloadBtn.addEventListener('click', () => {
             if (typeof umami !== 'undefined') {
-                umami.track('CV Download', { source: 'Header / Hero' } );
+                umami.track('CV Download', { source: 'Header / Hero' });
             }
         });
     }
 
-    document.querySelectorAll('.outbound-github').forEach(link => {
+    // Supports both .outbound-link and legacy .outbound-github classes
+    document.querySelectorAll('.outbound-link, .outbound-github').forEach(link => {
         link.addEventListener('click', function() {
+            const platform = this.getAttribute('data-platform') || 'Outbound Link';
             if (typeof umami !== 'undefined') {
-                umami.track('GitHub Outbound Click', { repo: this.href });
+                umami.track('Outbound Click', { platform: platform, url: this.href });
             }
         });
     });
@@ -117,16 +135,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (toggleBtn && mobileMenu) {
         toggleBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-            openIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
+            if (openIcon) openIcon.classList.toggle('hidden');
+            if (closeIcon) closeIcon.classList.toggle('hidden');
         });
 
         // Close menu when clicking links
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
-                openIcon.classList.remove('hidden');
-                closeIcon.classList.add('hidden');
+                if (openIcon) openIcon.classList.remove('hidden');
+                if (closeIcon) closeIcon.classList.add('hidden');
             });
         });
     }

@@ -23,3 +23,10 @@ node_modules/
 codefetch/
 codefetch.config.mjs
 .codefetchignore
+
+# Jekyll cache
+.jekyll-cache/
+.jekyll-metadata
+
+# Miscellaneous
+assets/css/main.css

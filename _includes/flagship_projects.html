@@ -5,13 +5,13 @@
     </div>
 
     <!-- Case Study 1 -->
-    <div class="p-6 md:p-8 rounded-2xl bg-slate-800/90 border border-slate-700/80 shadow-xl space-y-6 hover:border-slate-600 transition-all">
+    <div class="p-6 md:p-8 rounded-2xl bg-gradient-to-b from-slate-800/90 to-slate-800/50 border border-slate-700/80 shadow-xl space-y-6 hover:border-slate-600 transition-all">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-700 pb-4">
             <div>
-                <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">Production CALL System</span>
+                <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">Automated Assessment System</span>
                 <h3 class="text-2xl font-bold text-slate-50 mt-2">Automated Multilingual Language Proficiency Assessment System</h3>
             </div>
-            <div class="text-xs text-slate-400 font-mono">Role: Lead ML Researcher & Product Manager</div>
+            <div class="text-xs text-slate-400 font-mono">Role: Lead ML Research Engineer & PM</div>
         </div>
 
         <div class="flex flex-wrap gap-2">
@@ -27,12 +27,12 @@
             <div class="space-y-3">
                 <h4 class="text-sm font-semibold text-slate-200 uppercase tracking-wide">The Challenge & Problem</h4>
                 <p class="text-sm text-slate-400 leading-relaxed">
-                    Replaced an expensive legacy vendor system ($300k/year) restricted to only 9 languages that suffered from poor scoring correlation with human OPIc/ACTFL raters (0.36 Quadratic Weighted Kappa).
+                    Architected an in-house automated scoring pipeline projected to yield $225K+ in annual operational savings (>90% infrastructure cost reduction compared to the legacy vendor system) upon final deployment, while significantly improving human rater correlation.
                 </p>
                 <h4 class="text-sm font-semibold text-slate-200 uppercase tracking-wide pt-2">System Architecture</h4>
                 <ul class="text-sm text-slate-400 space-y-2 list-disc list-inside">
-                    <li><strong class="text-slate-300">Preprocessing:</strong> Azure batch pipeline extracting acoustic features via Praat (pitch, jitter, pause cadence) and syntactic features via <code class="text-xs font-mono text-sky-300">spaCy</code>.</li>
-                    <li><strong class="text-slate-300">Modeling Pipeline:</strong> Fine-tuned Multilingual Modern BERT (<code class="text-xs font-mono text-sky-300">mmBERT</code>) using a 3-stage transfer learning regime with parameter-efficient <code class="text-xs font-mono text-sky-300">LoRA</code> adapters per target language.</li>
+                    <li><strong class="text-slate-300">Preprocessing:</strong> Azure batch pipeline extracting acoustic and temporal metrics via <code class="font-mono text-sky-300">Praat</code> (rate of speech, pause frequency, pause duration) and syntactic features via <code class="font-mono text-sky-300">spaCy</code>.</li>
+                    <li><strong class="text-slate-300">Modeling Pipeline:</strong> Fine-tuned Multilingual Modern BERT (<code class="font-mono text-sky-300">mmBERT</code>) using a 3-stage transfer learning regime with parameter-efficient <code class="font-mono text-sky-300">LoRA</code> adapters per target language.</li>
                 </ul>
             </div>
 
@@ -53,24 +53,24 @@
                     </div>
                     <div class="p-3 bg-slate-800 rounded-lg border border-slate-700">
                         <div class="text-xs text-slate-400">Cost Reduction</div>
-                        <div class="text-xl font-bold text-emerald-400 font-mono mt-1">~75%</div>
+                        <div class="text-xl font-bold text-emerald-400 font-mono mt-1">&gt;90%</div>
                     </div>
                 </div>
                 <p class="text-xs text-slate-400 italic">
-                    Successfully scaled across 70+ languages, enabling zero-shot/few-shot automated scoring for previously un-evaluated low-resource target languages.
+                    Validated across 9 target languages, with a modular architecture engineered to scale across 30–40 low-resource target languages.
                 </p>
             </div>
         </div>
     </div>
 
     <!-- Case Study 2 -->
-    <div id="latin-asr-demo" class="p-6 md:p-8 rounded-2xl bg-slate-800/90 border border-slate-700/80 shadow-xl space-y-6 hover:border-slate-600 transition-all scroll-mt-28">
+    <div id="latin-asr-demo" class="p-6 md:p-8 rounded-2xl bg-gradient-to-b from-slate-800/90 to-slate-800/50 border border-slate-700/80 shadow-xl space-y-6 hover:border-slate-600 transition-all scroll-mt-28">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-700 pb-4">
             <div>
                 <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Open Source & Live Demo</span>
                 <h3 class="text-2xl font-bold text-slate-50 mt-2">Classical Latin Speech Recognition (ASR) & ITN Pipeline</h3>
             </div>
-            <div class="text-xs text-slate-400 font-mono">Role: Author & Model Creator</div>
+            <div class="text-xs text-slate-400 font-mono">Role: Author & Lead Developer</div>
         </div>
 
         <div class="flex flex-wrap gap-2">
@@ -82,7 +82,7 @@
         </div>
 
         <p class="text-sm text-slate-400 leading-relaxed">
-            Curated and hand-transcribed a 10-hour gold-standard audio dataset of spoken Classical Latin. Fine-tuned acoustic <code class="text-xs font-mono text-sky-300">wav2vec2</code> models paired with a secondary Inverse Text Normalization (ITN) model to automatically restore casing, macrons, and punctuation on raw acoustic predictions.
+            Curated and hand-transcribed a 10-hour gold-standard audio dataset of spoken Classical Latin. Fine-tuned acoustic <code class="font-mono text-sky-300">wav2vec2</code> models paired with a secondary Inverse Text Normalization (ITN) model to automatically restore casing, macrons, and punctuation on raw acoustic predictions.
         </p>
 
         <!-- Interactive HuggingFace Embed Wrapper -->
@@ -95,22 +95,27 @@
                     <h4 class="text-base font-semibold text-slate-200">Interactive Latin Speech Recognition Demo</h4>
                     <p class="text-xs text-slate-400 max-w-md mx-auto mt-1">Load the Hugging Face Space model container to record audio or upload sample files for live inference.</p>
                 </div>
-                <button id="load-hf-space-btn" class="px-4 py-2 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-900 text-xs font-semibold transition-all">
-                    Launch Live Model Demo
-                </button>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <button id="load-hf-space-btn" class="px-4 py-2 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-900 text-xs font-semibold transition-all">
+                        Launch Live Model Demo
+                    </button>
+                    <a href="https://huggingface.co/spaces/njand/latin-asr-demo" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold transition-all inline-flex items-center gap-1.5">
+                        Open Demo in New Tab
+                    </a>
+                </div>
             </div>
-            <iframe id="hf-space-iframe" class="hidden w-full h-[450px] border-0" title="Latin ASR Gradio Demo"></iframe>
+            <iframe id="hf-space-iframe" class="hidden w-full h-[450px] border-0" data-src="https://njand-latin-asr-demo.hf.space" title="Latin ASR Gradio Demo"></iframe>
         </div>
     </div>
 
     <!-- Case Study 3 -->
-    <div class="p-6 md:p-8 rounded-2xl bg-slate-800/90 border border-slate-700/80 shadow-xl space-y-6 hover:border-slate-600 transition-all">
+    <div class="p-6 md:p-8 rounded-2xl bg-gradient-to-b from-slate-800/90 to-slate-800/50 border border-slate-700/80 shadow-xl space-y-6 hover:border-slate-600 transition-all">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-700 pb-4">
             <div>
-                <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">Production AI System</span>
+                <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">Interactive Language Learning (CALL)</span>
                 <h3 class="text-2xl font-bold text-slate-50 mt-2">Multilingual Grammatical Error Correction & Practice System</h3>
             </div>
-            <div class="text-xs text-slate-400 font-mono">Role: Product Manager & Lead ML Researcher</div>
+            <div class="text-xs text-slate-400 font-mono">Role: Lead ML Research Engineer & PM</div>
         </div>
 
         <div class="flex flex-wrap gap-2">
@@ -127,7 +132,7 @@
                     Directed the architecture and strategy for interactive feedback workflows and practice chatbots. Built parallelized data extraction pipelines and content safety classifiers across dozens of target languages.
                 </p>
                 <ul class="text-sm text-slate-400 space-y-2 list-disc list-inside">
-                    <li><strong class="text-slate-300">Data Mining Pipeline:</strong> Engineered parallelized <code class="text-xs font-mono text-sky-300">spaCy</code> filtering pipelines processing large-scale text corpora across diverse orthographies.</li>
+                    <li><strong class="text-slate-300">Data Mining Pipeline:</strong> Engineered parallelized <code class="font-mono text-sky-300">spaCy</code> filtering pipelines processing large-scale text corpora across diverse orthographies.</li>
                     <li><strong class="text-slate-300">Safety & Quality Control:</strong> Fine-tuned custom BERT safety classification models to moderate interactive practice dialogs and output validation.</li>
                 </ul>
             </div>
