@@ -1,44 +1,62 @@
 <!-- Direct Contact CTA Section -->
-<section id="contact" class="text-center py-12 border-t border-slate-800 space-y-4">
-    <h3 class="text-2xl font-bold text-slate-100">Get in Touch</h3>
-    <p class="text-sm text-slate-400 max-w-md mx-auto">
-        Interested in discussing applied NLP research, model evaluation, or technical leadership opportunities?
-    </p>
-    <div id="contact-button-container" class="pt-2">
-        <a 
-            id="email-cta" 
-            href="#" 
-            data-user="anderson.nathanjames" 
-            data-domain="gmail.com" 
-            class="text-slate-400 hover:text-white transition-colors">
-            Contact
-        </a>
+<section id="contact" class="scroll-mt-24">
+    <div class="p-8 md:p-10 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-900 to-slate-950 border border-slate-800 shadow-2xl text-center space-y-6 max-w-3xl mx-auto backdrop-blur-md relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-sky-500/10 blur-2xl pointer-events-none"></div>
+        <div class="absolute -bottom-12 -left-12 w-32 h-32 rounded-full bg-emerald-500/10 blur-2xl pointer-events-none"></div>
+
+        <div class="space-y-2">
+            <h3 class="text-2xl font-bold text-slate-50">Get in Touch</h3>
+            <p class="text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
+                Interested in discussing applied NLP research, model evaluation, or technical leadership opportunities?
+            </p>
+        </div>
+
+        <div class="flex flex-wrap justify-center items-center gap-4 pt-2">
+            <a 
+                id="email-cta" 
+                href="#" 
+                data-user="anderson.nathanjames" 
+                data-domain="gmail.com" 
+                class="px-6 py-3 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-sky-500/20 inline-flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                Send Email
+            </a>
+            <button 
+                id="copy-email-btn"
+                type="button"
+                data-user="anderson.nathanjames" 
+                data-domain="gmail.com"
+                class="px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 font-semibold text-sm transition-all inline-flex items-center gap-2">
+                <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                <span id="copy-email-text">Copy Email Address</span>
+            </button>
+        </div>
     </div>
 </section>
 
-<footer class="border-t border-slate-800 bg-slate-900/50 mt-10 py-10">
+<footer class="border-t border-slate-800/80 bg-slate-950/60 mt-16 py-10">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
         <div class="space-y-1 text-center md:text-left">
             <div class="text-sm font-semibold text-slate-200">Nathan Anderson</div>
             <div class="text-xs text-slate-400">Tulsa, Oklahoma (Remote) | Applied NLP Research & AI Product Leadership</div>
         </div>
 
-        <div class="flex items-center space-x-5 text-slate-400 text-sm">
-            <a href="https://github.com/njand" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400 transition-colors inline-flex items-center gap-1.5">
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        <div class="flex items-center space-x-6 text-slate-400 text-sm">
+            <a href="https://github.com/njand" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400 transition-colors inline-flex items-center gap-1.5 outbound-link" data-platform="GitHub">
+                {% include icons/github.html %}
                 GitHub
             </a>
-            <a href="https://huggingface.co/njand" target="_blank" rel="noopener noreferrer" class="hover:text-yellow-400 transition-colors inline-flex items-center gap-1.5">
-                <svg class="w-4 h-4 fill-current text-yellow-400" viewBox="0 0 24 24"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-3.5-12a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm7 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-7.7 5.7c1.3 1.5 3.1 2.3 5.2 2.3s3.9-.8 5.2-2.3a.75.75 0 0 0-1.14-.97C14.1 15.82 12.82 16.5 11 16.5s-3.1-.68-4.14-1.8a.75.75 0 0 0-1.16.97z"/></svg>
+            <a href="https://huggingface.co/njand" target="_blank" rel="noopener noreferrer" class="hover:text-yellow-400 transition-colors inline-flex items-center gap-1.5 outbound-link" data-platform="HuggingFace">
+                {% include icons/huggingface.html %}
                 Hugging Face
             </a>
-            <a href="https://www.linkedin.com/in/njand/" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400 transition-colors inline-flex items-center gap-1.5">
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            <a href="https://www.linkedin.com/in/njand/" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400 transition-colors inline-flex items-center gap-1.5 outbound-link" data-platform="LinkedIn">
+                {% include icons/linkedin.html %}
                 LinkedIn
             </a>
         </div>
 
-        <div class="text-xs text-slate-400">
+        <div class="text-xs text-slate-500">
             © {{ site.time | date: "%Y" }} Nathan Anderson.
         </div>
     </div>

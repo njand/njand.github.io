@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    document.querySelectorAll('section, .project-card').forEach(el => {
+    document.querySelectorAll('section, .skill-card').forEach(el => {
         el.classList.add('fade-in-up');
         revealObserver.observe(el);
     });
@@ -57,25 +57,28 @@ document.addEventListener('DOMContentLoaded', () => {
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             filterButtons.forEach(b => {
-                b.classList.remove('bg-sky-500', 'text-slate-900');
-                b.classList.add('bg-slate-800', 'text-slate-300');
+                b.classList.remove('bg-sky-500', 'text-slate-950', 'shadow-md', 'shadow-sky-500/20');
+                b.classList.add('bg-slate-900', 'text-slate-300');
             });
-            btn.classList.add('bg-sky-500', 'text-slate-900');
-            btn.classList.remove('bg-slate-800', 'text-slate-300');
+            btn.classList.add('bg-sky-500', 'text-slate-950', 'shadow-md', 'shadow-sky-500/20');
+            btn.classList.remove('bg-slate-900', 'text-slate-300');
 
             const filter = btn.getAttribute('data-filter');
             skillCards.forEach(card => {
-                if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                    card.style.display = ''; // Restores default grid item display
+                const category = card.getAttribute('data-category');
+                if (filter === 'all' || category === filter) {
+                    card.classList.remove('opacity-25', 'scale-95');
+                    card.classList.add('opacity-100', 'scale-100');
                 } else {
-                    card.style.display = 'none';
+                    card.classList.remove('opacity-100', 'scale-100');
+                    card.classList.add('opacity-25', 'scale-95');
                 }
             });
         });
     });
 
     // 4. Interactive HF Space Deferred Loading
-    const loadHfBtn = document.querySelector('#load-hf-space-btn') || document.querySelector('#load-demo-btn');
+    const loadHfBtn = document.querySelector('#load-hf-space-btn');
     const hfPlaceholder = document.querySelector('#hf-placeholder');
     const hfIframe = document.querySelector('#hf-space-iframe');
 
@@ -97,8 +100,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Email CTA Initialization
+    // 5. Email CTA Initialization & Copy to Clipboard
     const emailBtn = document.getElementById('email-cta');
+    const copyEmailBtn = document.getElementById('copy-email-btn');
+    const copyEmailText = document.getElementById('copy-email-text');
+
     if (emailBtn) {
         const user = emailBtn.getAttribute('data-user');
         const domain = emailBtn.getAttribute('data-domain');
@@ -107,7 +113,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 6. Analytics Event Listeners & Navigation
+    if (copyEmailBtn && copyEmailText) {
+        copyEmailBtn.addEventListener('click', () => {
+            const user = copyEmailBtn.getAttribute('data-user');
+            const domain = copyEmailBtn.getAttribute('data-domain');
+            if (user && domain) {
+                const email = `${user}@${domain}`;
+                navigator.clipboard.writeText(email).then(() => {
+                    copyEmailText.textContent = 'Copied to Clipboard!';
+                    setTimeout(() => {
+                        copyEmailText.textContent = 'Copy Email Address';
+                    }, 2500);
+                });
+            }
+        });
+    }
+
+    // 6. Experience Accordion Toggle
+    document.querySelectorAll('.experience-toggle-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const details = this.nextElementSibling;
+            const icon = this.querySelector('svg');
+            if (details) {
+                details.classList.toggle('hidden');
+                if (icon) icon.classList.toggle('rotate-180');
+            }
+        });
+    });
+
+    // 7. Analytics Event Listeners & Navigation
     const downloadBtn = document.querySelector('#download-cv-btn');
     if (downloadBtn) {
         downloadBtn.addEventListener('click', () => {
@@ -117,8 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Supports both .outbound-link and legacy .outbound-github classes
-    document.querySelectorAll('.outbound-link, .outbound-github').forEach(link => {
+    document.querySelectorAll('.outbound-link').forEach(link => {
         link.addEventListener('click', function() {
             const platform = this.getAttribute('data-platform') || 'Outbound Link';
             if (typeof umami !== 'undefined') {
@@ -139,7 +172,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (closeIcon) closeIcon.classList.toggle('hidden');
         });
 
-        // Close menu when clicking links
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
