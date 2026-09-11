@@ -132,11 +132,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // 6. Experience Accordion Toggle
     document.querySelectorAll('.experience-toggle-btn').forEach(btn => {
         btn.addEventListener('click', function() {
-            const details = this.nextElementSibling;
-            const icon = this.querySelector('svg');
+            const parent = this.closest('.space-y-3');
+            const details = parent ? parent.querySelector('.experience-details') : null;
+            const svg = this.querySelector('svg');
+            const span = this.querySelector('span');
+
             if (details) {
                 details.classList.toggle('hidden');
-                if (icon) icon.classList.toggle('rotate-180');
+                if (svg) svg.classList.toggle('rotate-180');
+                
+                if (span) {
+                    const isExpanded = !details.classList.contains('hidden');
+                    span.textContent = isExpanded ? 'Hide Deep-Dive' : 'View Deep-Dive & Tech Stack';
+                }
             }
         });
     });
