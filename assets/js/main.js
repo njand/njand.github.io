@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 if (span) {
                     const isExpanded = !details.classList.contains('hidden');
-                    span.textContent = isExpanded ? 'Hide Deep-Dive' : 'View Deep-Dive & Tech Stack';
+                    span.textContent = isExpanded ? 'Hide' : 'View More';
                 }
             }
         });
