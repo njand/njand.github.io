@@ -4,7 +4,7 @@
             <div class="text-xs font-mono uppercase tracking-wider text-sky-400 font-semibold">Career & Academic Path</div>
             <h2 class="text-3xl font-bold text-slate-50 mt-1">Professional Experience</h2>
         </div>
-        <a href="{{ '/assets/pdf/Nathan_Anderson_CV.pdf' | relative_url }}" target="_blank" download class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 text-xs font-semibold transition-all shadow-md hover:border-sky-500/40">
+        <a href="{{ '/assets/pdf/Nathan_Anderson_Resume.pdf' | relative_url }}" target="_blank" download class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 text-xs font-semibold transition-all shadow-md hover:border-sky-500/40">
             <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
             Download Full Resume
         </a>
@@ -22,10 +22,10 @@
                         <h3 class="text-lg font-bold text-slate-100">Product Manager & Lead NLP Researcher</h3>
                         <div class="text-sm text-sky-400 font-medium">Provo MTC — The Church of Jesus Christ of Latter-day Saints</div>
                     </div>
-                    <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-950 text-slate-400 border border-slate-800">2022 – Present | Remote (Tulsa, OK)</span>
+                    <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-950 text-slate-400 border border-slate-800">2022 – Present | Remote</span>
                 </div>
                 <p class="text-xs text-slate-300 leading-relaxed">
-                    Lead applied NLP research, product strategy, and ML operations across 70+ languages. Direct a team of up to 8 Research Assistants executing hands-on modeling, corpus mining, and SLA pipeline architectures.
+                    Lead applied NLP research, product strategy, and ML operations across 60+ languages. Direct a team of up to 8 Research Assistants executing hands-on modeling, corpus mining, and SLA pipeline architectures.
                 </p>
                 
                 <button type="button" class="experience-toggle-btn text-xs font-mono text-sky-400 hover:text-sky-300 flex items-center gap-1.5 focus:outline-none pt-1">
@@ -35,10 +35,10 @@
 
                 <div class="experience-details hidden space-y-3 pt-3 border-t border-slate-800/80">
                     <ul class="space-y-2 text-slate-300 text-xs list-disc list-inside">
-                        <li><strong class="text-slate-100">Automated Language Assessment:</strong> Built a 3-stage transfer learning pipeline (mmBERT + LoRA) replacing a $300k/year legacy vendor tool across 70+ languages, achieving a Quadratic Weighted Kappa of <span class="text-sky-400 font-semibold">0.86</span> (vs vendor 0.36) and reducing MAE to <span class="text-sky-400 font-semibold">0.55</span>.</li>
+                        <li><strong class="text-slate-100">Automated Language Assessment:</strong> Built a 3-stage transfer learning pipeline (mmBERT + LoRA) to replace a $300k/year legacy vendor tool across 9 languages, achieving a Quadratic Weighted Kappa of <span class="text-sky-400 font-semibold">0.86</span> (vs vendor 0.36).</li>
                         <li><strong class="text-slate-100">Multilingual GEC & SLA Feedback:</strong> Engineered interactive Grammatical Error Correction workflows with structured output parsing (OpenAI API) across 41 validated languages, serving tens of thousands of active users.</li>
                         <li><strong class="text-slate-100">Conversational AI Practice Engine:</strong> Architected interactive scenario-based chatbots featuring dynamic persona generation and automated safety guardrail termination hooks.</li>
-                        <li><strong class="text-slate-100">Data Curation & Safety Pipeline:</strong> Mined millions of sentences using parallelized <code class="text-[11px] font-mono text-sky-300 bg-slate-950 px-1 py-0.5 rounded">spaCy</code> filtering and fine-tuned custom BERT classification models to filter out inappropriate contexts.</li>
+                        <li><strong class="text-slate-100">Data Curation & Safety Pipeline:</strong> Mined millions of translation pairs using parallelized <code class="text-[11px] font-mono text-sky-300 bg-slate-950 px-1 py-0.5 rounded">spaCy</code> processing and a fine-tuned custom BERT classification model.</li>
                     </ul>
                     <div class="flex flex-wrap gap-1.5 pt-2">
                         <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">PyTorch</span>
@@ -100,7 +100,7 @@
                     <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-950 text-slate-400 border border-slate-800">Summer 2019 | Riverside, UT</span>
                 </div>
                 <p class="text-xs text-slate-300 leading-relaxed">
-                    Designed proof-of-concept Speech-to-Speech Translation (S2ST) pipelines across 38 languages and optimized real-time streaming speech alignment algorithms.
+                    Designed proof-of-concept Speech-to-Speech Translation pipeline across 38 languages and optimized real-time streaming speech alignment algorithms.
                 </p>
 
                 <button type="button" class="experience-toggle-btn text-xs font-mono text-sky-400 hover:text-sky-300 flex items-center gap-1.5 focus:outline-none pt-1">
@@ -110,14 +110,15 @@
 
                 <div class="experience-details hidden space-y-3 pt-3 border-t border-slate-800/80">
                     <ul class="space-y-2 text-slate-300 text-xs list-disc list-inside">
-                        <li><strong class="text-slate-100">Acoustic Fine-Tuning:</strong> Curated and formatted 50 hours of domain-specific audio data to fine-tune Azure STT models, cutting Word Error Rate (WER) from <span class="text-sky-400 font-semibold">7.2% to 3.3%</span>.</li>
-                        <li><strong class="text-slate-100">Streaming Transcript Alignment:</strong> Engineered a low-latency dynamic programming algorithm matching live partial speech to candidate transcript windows, bypassing ASR noise.</li>
-                        <li><strong class="text-slate-100">Control Interface Application:</strong> Built a native <code class="text-[11px] font-mono text-sky-300 bg-slate-950 px-1 py-0.5 rounded">PyQt</code> desktop application featuring dynamic audio fading and streaming synchronization for live events.</li>
+                        <li><strong class="text-slate-100">Acoustic Fine-Tuning:</strong> Curated 50 hours of domain-specific audio data to fine-tune Azure STT models, cutting Word Error Rate (WER) from <span class="text-sky-400 font-semibold">7.2% to 3.3%</span>.</li>
+                        <li><strong class="text-slate-100">Streaming Transcript Alignment:</strong> Engineered a low-latency dynamic programming algorithm matching live partial speech to candidate transcript windows.</li>
+                        <li><strong class="text-slate-100">Control Interface Application:</strong> Built a <code class="text-[11px] font-mono text-sky-300 bg-slate-950 px-1 py-0.5 rounded">PyQt</code> desktop application to facilitate streaming synchronization for live events.</li>
                     </ul>
                     <div class="flex flex-wrap gap-1.5 pt-2">
-                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Azure STT</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Azure Speech SDK</span>
                         <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">PyQt</span>
                         <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Dynamic Programming</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Machine Translation</span>
                         <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Speech-to-Speech Translation</span>
                     </div>
                 </div>
@@ -131,12 +132,12 @@
                 <div class="flex flex-wrap justify-between items-start gap-2">
                     <div>
                         <h3 class="text-base font-bold text-slate-100">M.S. in Language Technologies</h3>
-                        <div class="text-xs text-sky-400 font-medium">Carnegie Mellon University — Language Technologies Institute (LTI)</div>
+                        <div class="text-xs text-sky-400 font-medium">Carnegie Mellon University — Language Technologies Institute</div>
                     </div>
                     <span class="text-xs font-mono text-slate-400">2020 – 2022</span>
                 </div>
                 <p class="text-xs text-slate-300 leading-relaxed">
-                    Specialized in computational linguistics, multilingual speech/text processing, and second language acquisition algorithms.
+                    Specialized in computational linguistics, multilingual speech/text processing, and cognitive modeling.
                 </p>
 
                 <button type="button" class="experience-toggle-btn text-xs font-mono text-sky-400 hover:text-sky-300 flex items-center gap-1.5 focus:outline-none pt-1">
@@ -146,13 +147,14 @@
 
                 <div class="experience-details hidden space-y-3 pt-3 border-t border-slate-800/80">
                     <ul class="space-y-2 text-slate-300 text-xs list-disc list-inside">
-                        <li><strong class="text-slate-100">Research Focus:</strong> Morphological modeling of low-resource languages (Nahuatl, Mixtec), cognate/etymology identification, and semantic taxonomy acquisition in language models.</li>
-                        <li><strong class="text-slate-100">Shared Task Benchmark:</strong> Awarded 3rd place in SIGMORPHON Shared Task on analogical morphology for nonce words.</li>
-                        <li><strong class="text-slate-100">Core Coursework:</strong> Algorithms for NLP, Multilingual NLP, Personalized Online Learning, Advanced Readings in Linguistics.</li>
+                        <li><strong class="text-slate-100">Research Focuses:</strong> Morphological modeling of low-resource languages, cognate/etymology identification, and semantic taxonomy acquisition in language models.</li>
+                        <li><strong class="text-slate-100">Shared Task Benchmark:</strong> Earned 3rd place in SIGMORPHON Shared Task on analogical morphology for multilingual nonce words.</li>
+                        <li><strong class="text-slate-100">Core Coursework:</strong> Neural Networks for NLP, Multilingual NLP, Personalized Online Learning, Practical Data Science, Advanced Readings in Linguistics.</li>
                     </ul>
                     <div class="flex flex-wrap gap-1.5 pt-2">
                         <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Multilingual NLP</span>
                         <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Morphological Modeling</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Data Visualization</span>
                         <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">PyTorch</span>
                     </div>
                 </div>
@@ -171,7 +173,7 @@
                     <span class="text-xs font-mono text-slate-400">2013 – 2020</span>
                 </div>
                 <p class="text-xs text-slate-300 leading-relaxed">
-                    Minors in Computer Science & Linguistic Computing. Recipient of Full-Tuition Scholarship, 2 FLAS Summer Scholarships, and Boren Scholarship.
+                    Minors in Computer Science & Linguistic Computing. Full-tuition scholarship.
                 </p>
 
                 <button type="button" class="experience-toggle-btn text-xs font-mono text-sky-400 hover:text-sky-300 flex items-center gap-1.5 focus:outline-none pt-1">
@@ -181,14 +183,16 @@
 
                 <div class="experience-details hidden space-y-3 pt-3 border-t border-slate-800/80">
                     <ul class="space-y-2 text-slate-300 text-xs list-disc list-inside">
-                        <li><strong class="text-slate-100">Academic Honors & Fellowships:</strong> Full-Tuition Scholarship (4 Years), FLAS Scholarships (Indonesian, Portuguese), Boren Scholarship (Turkish).</li>
+                        <li><strong class="text-slate-100">Academic Honors & Fellowships:</strong> Full-Tuition Scholarship (4 Years), FLAS Scholarships (Indonesian, Brazilian Portuguese), Boren Scholarship (Turkish).</li>
                         <li><strong class="text-slate-100">Teaching Assistant:</strong> TA for <code class="text-[11px] font-mono text-sky-300 bg-slate-950 px-1 py-0.5 rounded">CS 312: Algorithm Design and Analysis</code> (2 semesters).</li>
-                        <li><strong class="text-slate-100">Undergraduate Research:</strong> Co-authored human-swarm interaction research funded by DoD grant (Published in Springer LNCS).</li>
+                        <li><strong class="text-slate-100">Undergraduate Research:</strong> Co-authored human-swarm interaction research.</li>
                     </ul>
                     <div class="flex flex-wrap gap-1.5 pt-2">
-                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Algorithms</span>
-                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Linguistic Computing</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Computational Linguistics</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Natural Language Processing</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Speech Processing</span>
                         <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">C++</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">JavaScript</span>
                         <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-950 text-slate-300 border border-slate-800">Python</span>
                     </div>
                 </div>
