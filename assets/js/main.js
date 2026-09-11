@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         heroObserver.observe(heroSection);
     }
 
-    // 3. Skills Matrix Category Filter with Fluid FLIP Animations
+    // 3. Skills Matrix Category Filter with Smooth FLIP Animations
     const filterButtons = document.querySelectorAll('#skills-filter button');
     const skillCards = document.querySelectorAll('.skill-card');
     const skillsGrid = document.getElementById('skills-grid');
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (isAnimating || filter === currentFilter) return;
             isAnimating = true;
 
-            // Update tab active states
+            // Update button UI states
             filterButtons.forEach(b => {
                 b.classList.remove('bg-sky-500', 'text-slate-950', 'shadow-md', 'shadow-sky-500/20', 'active-tab');
                 b.classList.add('bg-slate-900', 'text-slate-300');
@@ -76,16 +76,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const easingCurve = 'cubic-bezier(0.16, 1, 0.3, 1)';
 
-            // SCENARIO 1: Switching directly between two single categories
+            // SCENARIO 1: Switching directly between single categories
             if (currentFilter !== 'all' && filter !== 'all') {
                 const currentCard = document.querySelector(`.skill-card[data-category="${currentFilter}"]`);
                 const targetCard = document.querySelector(`.skill-card[data-category="${filter}"]`);
 
                 if (currentCard) {
-                    currentCard.style.transition = `opacity 250ms ease, transform 250ms ${easingCurve}`;
+                    currentCard.style.transition = `opacity 300ms ease, transform 300ms ${easingCurve}`;
                     currentCard.style.opacity = '0';
-                    currentCard.style.transform = 'scale(0.96)';
-                    await new Promise(r => setTimeout(r, 250));
+                    currentCard.style.transform = 'scale(0.95)';
+                    await new Promise(r => setTimeout(r, 300));
                     currentCard.classList.add('hidden');
                 }
 
@@ -93,42 +93,42 @@ document.addEventListener('DOMContentLoaded', () => {
                     targetCard.classList.remove('hidden');
                     targetCard.style.transition = 'none';
                     targetCard.style.opacity = '0';
-                    targetCard.style.transform = 'scale(0.96)';
+                    targetCard.style.transform = 'scale(0.95)';
                     targetCard.getBoundingClientRect(); // Force reflow
 
-                    targetCard.style.transition = `opacity 350ms ease, transform 350ms ${easingCurve}`;
+                    targetCard.style.transition = `opacity 400ms ease, transform 400ms ${easingCurve}`;
                     targetCard.style.opacity = '1';
                     targetCard.style.transform = 'scale(1)';
-                    await new Promise(r => setTimeout(r, 350));
+                    await new Promise(r => setTimeout(r, 400));
                 }
                 isAnimating = false;
                 return;
             }
 
-            // SCENARIO 2: Expanding from "All Capabilities" to a single card
+            // SCENARIO 2: Expanding from "All Capabilities" to single category
             if (currentFilter === 'all' && filter !== 'all') {
                 const targetCard = document.querySelector(`.skill-card[data-category="${filter}"]`);
                 const otherCards = Array.from(skillCards).filter(c => c !== targetCard);
 
-                // Phase A: Gently fade out unselected cards
+                // Phase A: Fade out non-selected cards
                 otherCards.forEach(c => {
-                    c.style.transition = `opacity 250ms ease, transform 250ms ${easingCurve}`;
+                    c.style.transition = `opacity 300ms ease, transform 300ms ${easingCurve}`;
                     c.style.opacity = '0';
                     c.style.transform = 'scale(0.95)';
                 });
-                await new Promise(r => setTimeout(r, 250));
+                await new Promise(r => setTimeout(r, 300));
 
                 // Phase B: Record initial grid position (FIRST)
                 const first = targetCard.getBoundingClientRect();
 
-                // Phase C: Hide unselected cards & switch layout to single column
+                // Phase C: Switch DOM layout to single centered column
                 otherCards.forEach(c => c.classList.add('hidden'));
                 skillsGrid.className = 'flex flex-col gap-6 max-w-2xl mx-auto w-full';
 
-                // Phase D: Record final centered position (LAST)
+                // Phase D: Record target position (LAST)
                 const last = targetCard.getBoundingClientRect();
 
-                // Phase E: Invert & Play FLIP transition (scale grows 0.5 -> 1.0)
+                // Phase E: Invert transform (scale up from 0.5 -> 1.0)
                 const deltaX = first.left - last.left;
                 const deltaY = first.top - last.top;
                 const scaleX = first.width / last.width;
@@ -139,24 +139,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 targetCard.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(${scaleX}, ${scaleY})`;
                 targetCard.getBoundingClientRect(); // Force reflow
 
-                targetCard.style.transition = `transform 500ms ${easingCurve}`;
-                targetCard.style.transform = 'none';
+                targetCard.style.transition = `transform 650ms ${easingCurve}`;
+                targetCard.style.transform = 'translate(0px, 0px) scale(1, 1)';
 
-                await new Promise(r => setTimeout(r, 500));
+                await new Promise(r => setTimeout(r, 650));
                 targetCard.style.transformOrigin = '';
+                targetCard.style.transform = '';
                 isAnimating = false;
                 return;
             }
 
-            // SCENARIO 3: Collapsing back to "All Capabilities"
+            // SCENARIO 3: Collapsing back to "All Capabilities" grid
             if (currentFilter !== 'all' && filter === 'all') {
                 const activeCard = document.querySelector(`.skill-card[data-category="${currentFilter}"]`);
                 const otherCards = Array.from(skillCards).filter(c => c !== activeCard);
 
-                // Phase A: Record initial expanded position & width
+                // Phase A: Record initial expanded position (FIRST)
                 const first = activeCard ? activeCard.getBoundingClientRect() : null;
 
-                // Phase B: Switch layout back to 2x2 grid & reveal inactive cards (hidden at opacity 0)
+                // Phase B: Switch DOM back to 2x2 grid layout natively
                 skillsGrid.className = 'grid md:grid-cols-2 gap-6';
                 otherCards.forEach(c => {
                     c.classList.remove('hidden');
@@ -166,42 +167,38 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (activeCard && first) {
-                    // Phase C: Record target grid slot location
+                    // Phase C: Record target grid slot location (LAST)
                     const last = activeCard.getBoundingClientRect();
 
-                    // Phase D: Lock full width during collapse so text wrapping doesn't jump
-                    activeCard.style.width = `${first.width}px`;
-                    activeCard.style.transformOrigin = 'top left';
+                    // Phase D: Invert transform (scale down from ~2.1 -> 1.0)
+                    const deltaX = first.left - last.left;
+                    const deltaY = first.top - last.top;
+                    const scaleX = first.width / last.width;
+                    const scaleY = first.height / last.height;
 
-                    const startDX = first.left - last.left;
-                    const startDY = first.top - last.top;
-                    const targetScale = last.width / first.width; // Shrinks down (< 1.0)
-
-                    // Render active card at its original full-size location
                     activeCard.style.transition = 'none';
-                    activeCard.style.transform = `translate(${startDX}px, ${startDY}px) scale(1)`;
+                    activeCard.style.transformOrigin = 'top left';
+                    activeCard.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(${scaleX}, ${scaleY})`;
                     activeCard.getBoundingClientRect(); // Force reflow
 
-                    // Glide & shrink card into its target grid slot
-                    activeCard.style.transition = `transform 500ms ${easingCurve}`;
-                    activeCard.style.transform = `translate(0px, 0px) scale(${targetScale})`;
+                    // Smoothly glide and shrink to native scale(1)
+                    activeCard.style.transition = `transform 650ms ${easingCurve}`;
+                    activeCard.style.transform = 'translate(0px, 0px) scale(1, 1)';
                 }
 
-                // Phase E: Stagger the fade-in of surrounding cards as active card settles
+                // Phase E: Stagger fade-in of surrounding cards as active card lands
                 setTimeout(() => {
                     otherCards.forEach(c => {
-                        c.style.transition = `opacity 450ms ease, transform 450ms ${easingCurve}`;
+                        c.style.transition = `opacity 500ms ease, transform 500ms ${easingCurve}`;
                         c.style.opacity = '1';
                         c.style.transform = 'scale(1)';
                     });
-                }, 120);
+                }, 150);
 
-                await new Promise(r => setTimeout(r, 500));
+                await new Promise(r => setTimeout(r, 650));
 
-                // Clean up temporary inline style overrides
                 if (activeCard) {
-                    activeCard.style.transition = 'none';
-                    activeCard.style.width = '';
+                    activeCard.style.transition = '';
                     activeCard.style.transform = '';
                     activeCard.style.transformOrigin = '';
                 }
@@ -209,7 +206,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
 
     // 4. Interactive HF Space Deferred Loading
     const loadHfBtn = document.querySelector('#load-hf-space-btn');
