@@ -50,55 +50,111 @@ document.addEventListener('DOMContentLoaded', () => {
         heroObserver.observe(heroSection);
     }
 
-    // 3. Skills Matrix Category Filter & Reflow Animation
+    // 3. Skills Matrix Category Filter with FLIP Slide Animation
     const filterButtons = document.querySelectorAll('#skills-filter button');
     const skillCards = document.querySelectorAll('.skill-card');
     const skillsGrid = document.getElementById('skills-grid');
 
+    let isAnimating = false;
+
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Update button active state styling
-            filterButtons.forEach(b => {
-                b.classList.remove('bg-sky-500', 'text-slate-950', 'shadow-md', 'shadow-sky-500/20');
-                b.classList.add('bg-slate-900', 'text-slate-300');
-            });
-            btn.classList.add('bg-sky-500', 'text-slate-950', 'shadow-md', 'shadow-sky-500/20');
-            btn.classList.remove('bg-slate-900', 'text-slate-300');
+            if (isAnimating || btn.classList.contains('active-tab')) return;
 
             const filter = btn.getAttribute('data-filter');
 
-            // Toggle layout classes: if 'all', use 2-column grid; if specific filter, snap to full-width stacked view
+            // 1. Update button active states
+            filterButtons.forEach(b => {
+                b.classList.remove('bg-sky-500', 'text-slate-950', 'shadow-md', 'shadow-sky-500/20', 'active-tab');
+                b.classList.add('bg-slate-900', 'text-slate-300');
+            });
+            btn.classList.add('bg-sky-500', 'text-slate-950', 'shadow-md', 'shadow-sky-500/20', 'active-tab');
+            btn.classList.remove('bg-slate-900', 'text-slate-300');
+
+            isAnimating = true;
+
+            // --- PHASE 1: FIRST ---
+            // Record current screen coordinates of all visible cards
+            const firstPositions = new Map();
+            skillCards.forEach(card => {
+                if (!card.classList.contains('hidden')) {
+                    firstPositions.set(card, card.getBoundingClientRect());
+                }
+            });
+
+            // --- LAYOUT SWITCH ---
+            // Instantly swap grid vs single-column list view
             if (filter === 'all') {
-                skillsGrid.className = 'grid md:grid-cols-2 gap-6 transition-all duration-300';
+                skillsGrid.className = 'grid md:grid-cols-2 gap-6';
             } else {
-                skillsGrid.className = 'flex flex-col gap-6 max-w-3xl mx-auto transition-all duration-300';
+                skillsGrid.className = 'flex flex-col gap-6 max-w-2xl mx-auto w-full';
             }
 
+            // Apply DOM visibility
             skillCards.forEach(card => {
                 const category = card.getAttribute('data-category');
                 const isMatch = (filter === 'all' || category === filter);
 
                 if (isMatch) {
-                    // Ensure element is rendered in layout first
                     card.classList.remove('hidden');
-                    
-                    // Trigger smooth opacity & scale transition
-                    requestAnimationFrame(() => {
-                        card.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
-                        card.classList.add('opacity-100', 'scale-100');
-                    });
                 } else {
-                    // Fade out before collapsing from DOM flow
-                    card.classList.remove('opacity-100', 'scale-100');
-                    card.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-                    
-                    setTimeout(() => {
-                        if (card.classList.contains('pointer-events-none')) {
-                            card.classList.add('hidden');
-                        }
-                    }, 200); // Matches transition duration
+                    card.classList.add('hidden');
                 }
             });
+
+            // --- PHASE 2: LAST ---
+            // Record target screen coordinates after layout re-flow
+            const lastPositions = new Map();
+            skillCards.forEach(card => {
+                if (!card.classList.contains('hidden')) {
+                    lastPositions.set(card, card.getBoundingClientRect());
+                }
+            });
+
+            // --- PHASE 3 & 4: INVERT & PLAY ---
+            skillCards.forEach(card => {
+                if (card.classList.contains('hidden')) return;
+
+                const first = firstPositions.get(card);
+                const last = lastPositions.get(card);
+
+                if (first && last) {
+                    // Card was already visible: calculate offset vector
+                    const deltaX = first.left - last.left;
+                    const deltaY = first.top - last.top;
+
+                    // Invert position instantly without transition
+                    card.style.transition = 'none';
+                    card.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+                    card.style.opacity = '1';
+
+                    // Force browser layout repaint
+                    card.getBoundingClientRect();
+
+                    // Play animation to glided target position
+                    requestAnimationFrame(() => {
+                        card.style.transition = 'transform 380ms cubic-bezier(0.16, 1, 0.3, 1), opacity 300ms ease';
+                        card.style.transform = 'translate(0, 0)';
+                    });
+                } else {
+                    // Card is returning from hidden state: smooth fade/scale in
+                    card.style.transition = 'none';
+                    card.style.transform = 'scale(0.92)';
+                    card.style.opacity = '0';
+
+                    card.getBoundingClientRect();
+
+                    requestAnimationFrame(() => {
+                        card.style.transition = 'transform 300ms cubic-bezier(0.16, 1, 0.3, 1), opacity 300ms ease';
+                        card.style.transform = 'scale(1)';
+                        card.style.opacity = '1';
+                    });
+                }
+            });
+
+            setTimeout(() => {
+                isAnimating = false;
+            }, 380);
         });
     });
 
