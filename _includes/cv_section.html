@@ -197,27 +197,3 @@
 
     </div>
 </section>
-
-<!-- Inline JavaScript Toggle Engine -->
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        document.querySelectorAll('.experience-toggle-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const parent = btn.closest('.space-y-3');
-                const details = parent.querySelector('.experience-details');
-                const svg = btn.querySelector('svg');
-
-                if (details) {
-                    details.classList.toggle('hidden');
-                    svg.classList.toggle('rotate-180');
-                    
-                    const span = btn.querySelector('span');
-                    if (span) {
-                        const isExpanded = !details.classList.contains('hidden');
-                        span.textContent = isExpanded ? 'Hide Deep-Dive' : 'View Deep-Dive & Tech Stack';
-                    }
-                }
-            });
-        });
-    });
-</script>
