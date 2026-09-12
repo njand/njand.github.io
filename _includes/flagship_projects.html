@@ -8,7 +8,7 @@
     <div class="p-6 md:p-8 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-900/60 border border-slate-800 shadow-xl space-y-6 hover:border-sky-500/30 transition-all backdrop-blur-sm">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-800 pb-4">
             <div>
-                <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">Language Proficiency Assessment</span>
+                <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">Speech Modeling</span>
                 <h3 class="text-2xl font-bold text-slate-50 mt-2">Automated Multilingual Language Proficiency Assessment System</h3>
             </div>
             <div class="text-xs text-slate-400 font-mono bg-slate-950/80 px-3 py-1.5 rounded-lg border border-slate-800">Role: NLP Product Manager</div>
@@ -21,6 +21,8 @@
             <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">PEFT / LoRA</span>
             <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">Praat</span>
             <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">spaCy</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">Whisper</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">Azure Speech</span>
             <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">Azure ML Studio</span>
         </div>
 
@@ -28,11 +30,11 @@
             <div class="space-y-3">
                 <h4 class="text-sm font-semibold text-slate-200 uppercase tracking-wide">The Challenge & Problem</h4>
                 <p class="text-sm text-slate-300 leading-relaxed">
-                    Architected an in-house automated scoring pipeline projected to yield $250k+ in recurring annual operational vendor savings (>90% infrastructure cost reduction compared to the legacy vendor system) upon final deployment, while significantly improving correlation with trained human raters.
+                    Architected an in-house automated scoring pipeline projected to yield $250k+ in recurring annual operational vendor savings (>90% infrastructure cost reduction compared to the legacy vendor system), while significantly improving correlation with trained human raters.
                 </p>
                 <h4 class="text-sm font-semibold text-slate-200 uppercase tracking-wide pt-2">System Architecture</h4>
                 <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside">
-                    <li><strong class="text-slate-100">Preprocessing:</strong> Azure batch pipeline extracting acoustic and linguistic metrics via <code class="font-mono text-sky-300">Praat</code> (rate of speech, pause frequency, pause duration) and syntactic features via <code class="font-mono text-sky-300">spaCy</code>.</li>
+                    <li><strong class="text-slate-100">Preprocessing:</strong> Azure batch pipeline extracting acoustic and linguistic metrics via <code class="font-mono text-sky-300">Praat</code> (rate of speech, pause frequency, pause duration) and morpho-syntactic features via <code class="font-mono text-sky-300">spaCy</code>.</li>
                     <li><strong class="text-slate-100">Modeling Pipeline:</strong> Fine-tuned Multilingual Modern BERT (<code class="font-mono text-sky-300">mmBERT</code>) using a 3-stage transfer learning regime with parameter-efficient <code class="font-mono text-sky-300">LoRA</code> adapters per target language.</li>
                 </ul>
             </div>
@@ -85,20 +87,20 @@
             <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">Modal (Serverless GPU)</span>
             <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">Weights & Biases</span>
             <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">CodeCarbon</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">PyPI Package</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">PyPI</span>
             <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">Gradio</span>
         </div>
 
         <!-- Narrative & Metric Highlights -->
         <div class="space-y-3 text-sm text-slate-300 leading-relaxed">
             <p>
-                Architected an end-to-end machine learning pipeline and post-processing engine for Latin speech recognition (restored classical pronunciation). Built by fine-tuning self-supervised speech representations and transformer sequence labelers across custom datasets.
+                Architected an end-to-end machine learning pipeline and post-processing engine for Latin speech recognition (restored classical pronunciation). Fine-tuned self-supervised speech representations and sequence labelers across custom datasets.
             </p>
             <ul class="list-disc list-inside space-y-1.5 text-slate-400 marker:text-sky-400">
                 <li><strong class="text-slate-200">Acoustic Performance:</strong> Achieved <span class="text-emerald-400 font-mono">12.20% Strict WER</span> / <span class="text-emerald-400 font-mono">2.74% Strict CER</span> across 5-fold cross-validation on fine-tuned <code class="font-mono text-sky-300 text-xs">wav2vec2-xls-r-300m</code> model.</li>
-                <li><strong class="text-slate-200">LM Decoding & Optuna Tuning:</strong> Further reduced acoustic error rates by combining <code class="font-mono text-sky-300 text-xs">pyctcdecode</code> with a KenLM language model built on an extensive lexicon of fully inflected Latin unigrams. Optimized decoder parameters using <code class="font-mono text-sky-300 text-xs">optuna</code>.</li>
+                <li><strong class="text-slate-200">LM Decoding & Optuna Tuning:</strong> Further reduced acoustic error rates by combining <code class="font-mono text-sky-300 text-xs">pyctcdecode</code> with a KenLM language model built on a lexicon of fully inflected Latin unigrams. Optimized decoder parameters with <code class="font-mono text-sky-300 text-xs">optuna</code>.</li>
                 <li><strong class="text-slate-200">Contextual BERT Rescoring:</strong> Implemented a Masked Language Model Pseudo-Log-Likelihood rescoring pass using <code class="font-mono text-sky-300 text-xs">latin-bert</code> to re-rank candidate beams and resolve ambiguous acoustic predictions.</li>
-                <li><strong class="text-slate-200">Published PyPI Package for ITN:</strong> Packaged and published the post-processor to PyPI (<code class="font-mono text-sky-300 text-xs">latin-itn</code>). Fine-tuned a 14-class sequence labeler on <code class="font-mono text-sky-300 text-xs">latin-bert</code> to restore casing and punctuation on raw predictions.</li>
+                <li><strong class="text-slate-200">Published PyPI Package for ITN:</strong> Packaged and published the post-processor to PyPI (<code class="font-mono text-sky-300 text-xs">latin-itn</code>). Fine-tuned a 14-class sequence labeler on <code class="font-mono text-sky-300 text-xs">latin-bert</code> to restore casing and punctuation on raw predictions. Achieved 98% accuracy on casing restoration and 94% accuracy on punctuation restoration.</li>
                 <li><strong class="text-slate-200">Edge Quantization:</strong> Exported PyTorch weights to <code class="font-mono text-sky-300 text-xs">ONNX INT8</code>, yielding a <strong class="text-slate-200">72% memory reduction</strong> (1.26 GB to 355 MB) and accelerating CPU inference speed by ~3x.</li>
                 <li><strong class="text-slate-200">Serverless MLOps & Telemetry:</strong> Automated remote multi-GPU training on Modal (NVIDIA L4 instances) with persistent caching, Weights & Biases experiment tracking, and CodeCarbon emissions logging.</li>
             </ul>
@@ -151,11 +153,11 @@
             <!-- Main Narrative & Engineering Highlights -->
             <div class="lg:col-span-2 space-y-4 text-sm text-slate-300 leading-relaxed">
                 <p>
-                    Architected an LLM-powered Grammatical Error Correction (GEC) and pedagogical feedback engine targeting novice language learners across 60+ languages. Built an automated multi-model evaluation harness, dynamic prompt engineering pipeline, and educator-driven QA framework to benchmark LLM outputs against strict safety and helpfulness thresholds.
+                    Architected an LLM-powered Grammatical Error Correction (GEC) and pedagogical feedback engine targeting novice language learners across 60+ languages. Built an automated multi-model evaluation harness, dynamic prompt engineering pipeline, and educator-driven QA framework to benchmark LLM outputs against strict safety and accuracy thresholds.
                 </p>
                 <ul class="space-y-2 list-disc list-inside text-slate-400 marker:text-sky-400">
                     <li>
-                        <strong class="text-slate-200">Structured Outputs & Automated Few-Shot Curation:</strong> Built prompt pipelines that automatically generated and curated few-shot examples for low-resource languages. Enforced strict <code class="font-mono text-sky-300 text-xs">Pydantic</code> schemas via OpenAI Structured Outputs to guarantee 100% parseability of corrections and explanations.
+                        <strong class="text-slate-200">Structured Outputs & Automated Few-Shot Curation:</strong> Built prompt pipelines that automatically generated and vetted few-shot examples for low-resource languages. Enforced strict <code class="font-mono text-sky-300 text-xs">Pydantic</code> schemas via OpenAI Structured Outputs to guarantee 100% parseability of corrections and explanations.
                     </li>
                     <li>
                         <strong class="text-slate-200">Cross-Model Evaluation Harness:</strong> Evaluated multiple LLM models and providers using an automated multi-run execution harness. Ran multi-pass inference over educator-authored 10-sentence paired test sets (correct vs. learner error variants) to account for non-deterministic model behavior.
@@ -182,20 +184,12 @@
                             <div class="text-[11px] text-slate-400">Deployed Languages</div>
                             <div class="text-lg font-bold text-emerald-400 font-mono mt-0.5">41</div>
                         </div>
-                        <div class="p-2.5 bg-slate-900/90 rounded-lg border border-slate-800">
-                            <div class="text-[11px] text-slate-400">Avg Helpfulness Gate</div>
-                            <div class="text-lg font-bold text-sky-400 font-mono mt-0.5">&ge; 1.5 / 3</div>
-                        </div>
-                        <div class="p-2.5 bg-slate-900/90 rounded-lg border border-slate-800">
-                            <div class="text-[11px] text-slate-400">Max Harmful Rate</div>
-                            <div class="text-lg font-bold text-sky-400 font-mono mt-0.5">&lt; 10%</div>
-                        </div>
                     </div>
                 </div>
 
                 <div class="pt-3 border-t border-slate-800/80">
                     <p class="text-xs text-slate-400 italic leading-normal">
-                        Automated scoring dashboards dynamically enforced release thresholds based on educator ratings (-2 to +3 scale), ensuring responses were consistently helpful and non-harmful before deployment.
+                        Automated scoring dashboards dynamically enforced release thresholds based on educator ratings, ensuring responses were consistently accurate and pedagogically sound before deployment.
                     </p>
                 </div>
             </div>
