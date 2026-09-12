@@ -25,12 +25,12 @@
 
 /* Smooth View Transition timing */
 ::view-transition-group(*) {
-    animation-duration: 450ms;
+    animation-duration: 1000ms;
     animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 ::view-transition-old(*),
 ::view-transition-new(*) {
-    animation-duration: 450ms;
+    animation-duration: 1000ms;
     animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
