@@ -199,6 +199,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // 8. Light/Dark Theme Toggle (initial theme is applied by the inline script in <head>)
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.toggle('dark');
+            try {
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            } catch (e) {
+                // Storage can be blocked; the toggle still works for this page view
+            }
+        });
+    }
+
     const toggleBtn = document.getElementById('mobile-menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     const openIcon = document.getElementById('menu-icon-open');

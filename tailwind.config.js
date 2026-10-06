@@ -1,34 +1,42 @@
 /** @type {import('tailwindcss').Config} */
+const token = (name) => `rgb(var(--${name}) / <alpha-value>)`;
+
 module.exports = {
   content: [
     './_includes/**/*.html',
     './_layouts/**/*.html',
+    './assets/js/**/*.js',
     './*.html',
     './*.md'
   ],
+  darkMode: 'class',
   theme: {
     extend: {
+      // Colors resolve to CSS variables defined in assets/css/style.css,
+      // so dark mode is a variable swap on <html class="dark">.
       colors: {
-        slate: {
-          900: '#0f172a',
-          800: '#1e293b',
-          700: '#334155',
-          400: '#94a3b8',
-          50: '#f8fafc',
-        },
-        sky: {
-          400: '#38bdf8',
-          500: '#0ea5e9',
-        },
-        emerald: {
-          500: '#10b981',
-          400: '#34d399',
-        }
+        bg: token('bg'),
+        surface: token('surface'),
+        sunken: token('sunken'),
+        ink: token('ink'),
+        body: token('body'),
+        muted: token('muted'),
+        line: token('line'),
+        accent: token('accent'),
+        'accent-ink': token('accent-ink'),
+        'accent-soft': token('accent-soft'),
+        vendor: token('vendor'),
+        good: token('good'),
+        warn: token('warn'),
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
-      }
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['Newsreader', 'Georgia', 'serif'],
+        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+      },
+      maxWidth: {
+        prose: '68ch',
+      },
     },
   },
   plugins: [],

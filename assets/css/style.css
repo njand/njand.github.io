@@ -2,51 +2,134 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Color tokens as RGB triplets so Tailwind can apply opacity (see tailwind.config.js) */
 @layer base {
+  :root {
+    --bg: 250 248 244;
+    --surface: 255 255 255;
+    --sunken: 242 239 233;
+    --ink: 22 24 29;
+    --body: 58 63 71;
+    --muted: 103 108 117;
+    --line: 228 223 214;
+    --accent: 15 118 110;
+    --accent-ink: 255 255 255;
+    --accent-soft: 227 241 239;
+    --vendor: 184 178 167;
+    --good: 21 128 61;
+    --warn: 180 83 9;
+    color-scheme: light;
+  }
+
+  .dark {
+    --bg: 17 19 21;
+    --surface: 24 27 31;
+    --sunken: 12 14 16;
+    --ink: 243 241 236;
+    --body: 201 204 209;
+    --muted: 144 149 160;
+    --line: 42 46 52;
+    --accent: 45 212 191;
+    --accent-ink: 11 31 29;
+    --accent-soft: 18 48 44;
+    --vendor: 75 80 88;
+    --good: 74 222 128;
+    --warn: 251 191 36;
+    color-scheme: dark;
+  }
+
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
+
   body {
-    background-color: #020617;
-    color: #f8fafc;
+    background-color: rgb(var(--bg));
+    color: rgb(var(--body));
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: rgb(var(--accent) / 0.25);
   }
 }
 
-.fade-in-up {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
+@layer components {
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.14em] text-accent;
+  }
 
-.fade-in-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+  .section-title {
+    @apply font-serif text-3xl sm:text-4xl font-medium tracking-tight text-ink;
+  }
 
-/* Smooth View Transition timing */
-::view-transition-group(*) {
-    animation-duration: 1000ms;
-    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-}
+  .chip {
+    @apply inline-block font-mono text-xs px-2 py-0.5 rounded border border-line bg-sunken text-body whitespace-nowrap;
+  }
 
-::view-transition-old(*),
-::view-transition-new(*) {
-    animation-duration: 1000ms;
-    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  .btn {
+    @apply inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent text-accent-ink hover:bg-accent/90;
+  }
+
+  .btn-ghost {
+    @apply btn border border-line text-ink hover:border-accent hover:text-accent;
+  }
+
+  .link {
+    @apply text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent;
+  }
+
+  /* Native <details> disclosure used for long technical write-ups */
+  .details summary {
+    @apply cursor-pointer list-none inline-flex items-center gap-2 font-mono text-sm text-accent;
+  }
+  .details summary::-webkit-details-marker {
+    display: none;
+  }
+  .details summary::before {
+    content: "+";
+    @apply inline-flex w-5 h-5 items-center justify-center rounded border border-accent/40 text-xs;
+  }
+  .details[open] summary::before {
+    content: "−";
+  }
+
+  /* Horizontal comparison bars (widths set inline as percentages) */
+  .bar-track {
+    @apply relative h-2.5 rounded-full bg-sunken overflow-hidden;
+  }
+  .bar-fill {
+    @apply absolute inset-y-0 left-0 rounded-full;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  .fade-in-up {
-    opacity: 1;
-    transform: none;
-    transition: none;
+}
+
+@media print {
+  header, #theme-toggle, .no-print, iframe {
+    display: none !important;
   }
-  ::view-transition-group(*),
-  ::view-transition-old(*),
-  ::view-transition-new(*) {
-    animation: none;
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+  }
+  main {
+    padding-top: 0 !important;
   }
 }
