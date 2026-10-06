@@ -1,121 +1,69 @@
 <section id="skills" class="scroll-mt-24 space-y-8">
-    <div>
-        <div class="text-xs font-mono uppercase tracking-wider text-sky-400 font-semibold">Technical Profile</div>
-        <h2 class="text-3xl font-bold text-slate-50 mt-1">Skills & Competency Matrix</h2>
+    <div class="space-y-2">
+        <p class="eyebrow">Technical Profile</p>
+        <h2 class="section-title">Skills</h2>
     </div>
 
-    <!-- Skill Filter Tabs -->
-    <div class="flex flex-wrap gap-2 border-b border-slate-800 pb-4" id="skills-filter">
-        <button data-filter="all" aria-pressed="true" class="skill-tab active px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-sky-500 text-slate-950 transition-all shadow-md shadow-sky-500/20">All Capabilities</button>
-        <button data-filter="modeling" aria-pressed="false" class="skill-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition-all">Modeling & NLP</button>
-        <button data-filter="speech" aria-pressed="false" class="skill-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition-all">Speech & Audio</button>
-        <button data-filter="ops" aria-pressed="false" class="skill-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition-all">MLOps & Tooling</button>
-        <button data-filter="apps" aria-pressed="false" class="skill-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition-all">Apps & Data</button>
-        <button data-filter="languages" aria-pressed="false" class="skill-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition-all">Human Languages</button>
-    </div>
-
-    <!-- Skills Grid -->
-    <div class="grid md:grid-cols-2 gap-6" id="skills-grid">
-        
-        <!-- Modeling & NLP -->
-        <div class="skill-card [view-transition-name:card-modeling] p-6 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-sky-500/40 transition-colors space-y-4" data-category="modeling">
-            <div class="border-b border-slate-800 pb-3">
-                <h3 class="text-sm font-bold text-slate-100 flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-sky-400"></span>
-                    Modeling & NLP
-                </h3>
-            </div>
-            <div class="flex flex-wrap gap-2 text-xs">
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">PyTorch</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">Hugging Face Transformers</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">PEFT / LoRA</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">mmBERT / BERT</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">spaCy / Stanza</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">Structured Parsing</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">Semantic Search & Embeddings</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">scikit-learn</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">XGBoost</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">pandas / numpy</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">OpenAI API</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">Pydantic</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">Gemini API</span>
-            </div>
+    <dl class="divide-y divide-line border-y border-line">
+        <div class="py-5 grid md:grid-cols-[12rem_1fr] gap-x-8 gap-y-3">
+            <dt class="font-semibold text-ink">Modeling &amp; NLP</dt>
+            <dd class="flex flex-wrap gap-2">
+                <span class="chip">PyTorch</span>
+                <span class="chip">Hugging Face Transformers</span>
+                <span class="chip">PEFT / LoRA</span>
+                <span class="chip">mmBERT / BERT</span>
+                <span class="chip">spaCy / Stanza</span>
+                <span class="chip">Structured Parsing</span>
+                <span class="chip">Semantic Search &amp; Embeddings</span>
+                <span class="chip">scikit-learn</span>
+                <span class="chip">XGBoost</span>
+                <span class="chip">pandas / numpy</span>
+                <span class="chip">OpenAI API</span>
+                <span class="chip">Gemini API</span>
+                <span class="chip">Pydantic</span>
+            </dd>
         </div>
-
-        <!-- Speech & Audio -->
-        <div class="skill-card [view-transition-name:card-speech] p-6 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-sky-500/40 transition-colors space-y-4" data-category="speech">
-            <div class="border-b border-slate-800 pb-3">
-                <h3 class="text-sm font-bold text-slate-100 flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-sky-400"></span>
-                    Speech & Audio
-                </h3>
-            </div>
-            <div class="flex flex-wrap gap-2 text-xs">
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">Whisper / WhisperX</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">wav2vec2</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">KenLM / pyctcdecode</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">pyannote.audio</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">WER / CER (jiwer)</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">Praat</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">Azure Speech</span>
-            </div>
+        <div class="py-5 grid md:grid-cols-[12rem_1fr] gap-x-8 gap-y-3">
+            <dt class="font-semibold text-ink">Speech &amp; Audio</dt>
+            <dd class="flex flex-wrap gap-2">
+                <span class="chip">Whisper / WhisperX</span>
+                <span class="chip">wav2vec2</span>
+                <span class="chip">KenLM / pyctcdecode</span>
+                <span class="chip">pyannote.audio</span>
+                <span class="chip">WER / CER (jiwer)</span>
+                <span class="chip">Praat</span>
+                <span class="chip">Azure Speech</span>
+            </dd>
         </div>
-
-        <!-- MLOps & Tooling -->
-        <div class="skill-card [view-transition-name:card-ops] p-6 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-sky-500/40 transition-colors space-y-4" data-category="ops">
-            <div class="border-b border-slate-800 pb-3">
-                <h3 class="text-sm font-bold text-slate-100 flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-sky-400"></span>
-                    MLOps & Tooling
-                </h3>
-            </div>
-            <div class="flex flex-wrap gap-2 text-xs">
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">Modal</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">Azure ML Studio</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">Weights & Biases</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">Optuna</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">ONNX Runtime</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">GitHub Actions</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">uv / pytest / ruff</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">CodeCarbon</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">Linux CLI</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">Git</span>
-            </div>
+        <div class="py-5 grid md:grid-cols-[12rem_1fr] gap-x-8 gap-y-3">
+            <dt class="font-semibold text-ink">MLOps &amp; Tooling</dt>
+            <dd class="flex flex-wrap gap-2">
+                <span class="chip">Modal</span>
+                <span class="chip">Azure ML Studio</span>
+                <span class="chip">Weights &amp; Biases</span>
+                <span class="chip">Optuna</span>
+                <span class="chip">ONNX Runtime</span>
+                <span class="chip">GitHub Actions</span>
+                <span class="chip">uv / pytest / ruff</span>
+                <span class="chip">CodeCarbon</span>
+                <span class="chip">Linux CLI</span>
+                <span class="chip">Git</span>
+            </dd>
         </div>
-
-        <!-- Apps & Data -->
-        <div class="skill-card [view-transition-name:card-apps] p-6 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-sky-500/40 transition-colors space-y-4" data-category="apps">
-            <div class="border-b border-slate-800 pb-3">
-                <h3 class="text-sm font-bold text-slate-100 flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-sky-400"></span>
-                    Apps & Data
-                </h3>
-            </div>
-            <div class="flex flex-wrap gap-2 text-xs">
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">Gradio</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">Flask</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">SQL / PostgreSQL / SQLite</span>
-                <span class="font-mono text-sky-300 bg-slate-950 px-2.5 py-1 rounded-md border border-slate-800 whitespace-nowrap">Hugging Face Spaces</span>
-            </div>
+        <div class="py-5 grid md:grid-cols-[12rem_1fr] gap-x-8 gap-y-3">
+            <dt class="font-semibold text-ink">Apps &amp; Data</dt>
+            <dd class="flex flex-wrap gap-2">
+                <span class="chip">Gradio</span>
+                <span class="chip">Flask</span>
+                <span class="chip">SQL / PostgreSQL / SQLite</span>
+                <span class="chip">Hugging Face Spaces</span>
+            </dd>
         </div>
-
-        <!-- Human Languages -->
-        <div class="skill-card [view-transition-name:card-languages] md:col-span-2 p-6 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-sky-500/40 transition-colors space-y-4" data-category="languages">
-            <div class="border-b border-slate-800 pb-3">
-                <h3 class="text-sm font-bold text-slate-100 flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-sky-400"></span>
-                    Human Languages
-                </h3>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-xs text-slate-300">
-                <div class="p-2 rounded bg-slate-950 border border-slate-800"><strong class="text-slate-100">English:</strong> Native</div>
-                <div class="p-2 rounded bg-slate-950 border border-slate-800"><strong class="text-slate-100">Portuguese:</strong> Advanced</div>
-                <div class="p-2 rounded bg-slate-950 border border-slate-800"><strong class="text-slate-100">Spanish:</strong> Advanced</div>
-                <div class="p-2 rounded bg-slate-950 border border-slate-800"><strong class="text-slate-100">Latin:</strong> Advanced</div>
-                <div class="p-2 rounded bg-slate-950 border border-slate-800"><strong class="text-slate-100">Turkish:</strong> Intermediate</div>
-                <div class="p-2 rounded bg-slate-950 border border-slate-800"><strong class="text-slate-100">Indonesian:</strong> Intermediate</div>
-            </div>
+        <div class="py-5 grid md:grid-cols-[12rem_1fr] gap-x-8 gap-y-3">
+            <dt class="font-semibold text-ink">Human Languages</dt>
+            <dd class="text-[0.95rem]">
+                <span class="text-ink">English</span> (native) · <span class="text-ink">Portuguese, Spanish, Latin</span> (advanced) · <span class="text-ink">Indonesian, Turkish</span> (intermediate)
+            </dd>
         </div>
-
-    </div>
+    </dl>
 </section>
