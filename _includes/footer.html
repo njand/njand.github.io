@@ -1,73 +1,50 @@
-<!-- Direct Contact CTA Section -->
+<!-- Contact -->
 <section id="contact" class="scroll-mt-24">
-    <div class="p-8 md:p-10 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-900 to-slate-950 border border-slate-800 shadow-2xl text-center space-y-6 max-w-3xl mx-auto backdrop-blur-md relative overflow-hidden">
-        <!-- Ambient Glow Effects -->
-        <div class="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-sky-500/10 blur-2xl pointer-events-none"></div>
-        <div class="absolute -bottom-12 -left-12 w-32 h-32 rounded-full bg-emerald-500/10 blur-2xl pointer-events-none"></div>
+    <div class="rounded-2xl border border-line bg-surface px-6 py-12 sm:px-12 sm:py-16 text-center space-y-6">
+        <p class="eyebrow">Contact</p>
+        <h2 class="font-serif text-4xl sm:text-5xl font-medium tracking-tight text-ink">Get in touch</h2>
+        <p class="text-lg max-w-xl mx-auto">Reach out to share ideas, collaborate, or discuss my work.</p>
 
-        <!-- Stealth Copy: Research & Thought Leadership Focus -->
-        <div class="space-y-3">
-            <h3 class="text-2xl md:text-3xl font-bold text-slate-50 tracking-tight">
-                Get in Touch
-            </h3>
-            <p class="text-xs md:text-sm text-slate-300 max-w-xl mx-auto leading-relaxed">
-                Reach out to share ideas, collaborate, or discuss my work.
-            </p>
-        </div>
-
-        <!-- Actions -->
-        <div class="flex flex-wrap justify-center items-center gap-4 pt-2">
-            <a 
-                id="email-cta" 
-                href="#" 
-                data-user="anderson.nathanjames" 
-                data-domain="gmail.com" 
-                class="px-6 py-3 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-sky-500/20 inline-flex items-center gap-2">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        <div class="flex flex-wrap justify-center items-center gap-3 pt-2">
+            <!-- Address is assembled by JS on click so it never appears in the HTML; without JS this falls back to LinkedIn -->
+            <a id="email-cta" href="https://www.linkedin.com/in/njand/" data-user="anderson.nathanjames" data-domain="gmail.com" class="email-link btn-primary">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7l9 6 9-6M5 19h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z"/></svg>
                 Send Email
             </a>
-            <button 
-                id="copy-email-btn"
-                type="button"
-                data-user="anderson.nathanjames" 
-                data-domain="gmail.com"
-                class="px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 font-semibold text-sm transition-all inline-flex items-center gap-2 hover:border-slate-700">
-                <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-                <span id="copy-email-text">Copy Email Address</span>
+            <button id="copy-email-btn" type="button" data-user="anderson.nathanjames" data-domain="gmail.com" class="no-print btn-ghost">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2m-6 12h8a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-8a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2z"/></svg>
+                <span id="copy-email-text" aria-live="polite">Copy Email Address</span>
             </button>
+            <a href="https://www.linkedin.com/in/njand/" target="_blank" rel="noopener noreferrer" class="btn-ghost outbound-link" data-platform="LinkedIn">
+                {% include icons/linkedin.html %}
+                LinkedIn
+            </a>
         </div>
     </div>
 </section>
 
-<footer class="border-t border-slate-800/80 bg-slate-950/60 mt-16 py-10">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div class="space-y-1 text-center md:text-left">
-            <div class="text-sm font-semibold text-slate-200">Nathan Anderson</div>
-            <div class="text-xs text-slate-400">Tulsa, Oklahoma (Remote) | Applied NLP: Multilingual Speech &amp; Language Assessment</div>
+<footer class="border-t border-line mt-8 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-6 text-sm">
+        <div class="text-center lg:text-left">
+            <div class="font-serif text-lg text-ink">Nathan Anderson</div>
+            <div class="text-muted">Tulsa, Oklahoma (Remote) · Applied NLP: Multilingual Speech &amp; Language Assessment</div>
         </div>
 
-        <div class="flex items-center space-x-6 text-slate-400 text-sm">
-            <!-- GitHub -->
-            <a href="https://github.com/njand" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-sky-400 transition-colors inline-flex items-center gap-1.5 outbound-link" data-platform="GitHub">
+        <div class="flex items-center gap-6 text-muted">
+            <a href="https://github.com/njand" target="_blank" rel="noopener noreferrer" class="hover:text-ink transition-colors inline-flex items-center gap-1.5 whitespace-nowrap outbound-link" data-platform="GitHub">
                 {% include icons/github.html %}
                 GitHub
             </a>
-
-            <!-- Hugging Face -->
-            <a href="https://huggingface.co/njand" target="_blank" rel="noopener noreferrer" class="group text-slate-400 hover:text-yellow-400 transition-colors inline-flex items-center gap-1.5 outbound-link" data-platform="HuggingFace">
+            <a href="https://huggingface.co/njand" target="_blank" rel="noopener noreferrer" class="group hover:text-ink transition-colors inline-flex items-center gap-1.5 whitespace-nowrap outbound-link" data-platform="HuggingFace">
                 {% include icons/huggingface.html %}
-                <span class="group-hover:text-yellow-400 transition-colors">Hugging Face</span>
+                Hugging Face
             </a>
-
-            <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/in/njand/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-sky-400 transition-colors inline-flex items-center gap-1.5 outbound-link" data-platform="LinkedIn">
+            <a href="https://www.linkedin.com/in/njand/" target="_blank" rel="noopener noreferrer" class="hover:text-ink transition-colors inline-flex items-center gap-1.5 whitespace-nowrap outbound-link" data-platform="LinkedIn">
                 {% include icons/linkedin.html %}
                 LinkedIn
             </a>
         </div>
 
-        <div class="text-xs text-slate-500">
-            © {{ site.time | date: "%Y" }} Nathan Anderson.
-        </div>
+        <div class="text-muted whitespace-nowrap">© {{ site.time | date: "%Y" }} Nathan Anderson</div>
     </div>
 </footer>

@@ -1,60 +1,60 @@
-<header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <!-- Logo / Name -->
-        <a href="/" class="text-lg font-bold tracking-tight text-slate-50 hover:text-sky-400 transition-colors flex items-center gap-2 whitespace-nowrap">
-            <span class="w-2.5 h-2.5 rounded-full bg-sky-400 animate-pulse"></span>
+<header class="fixed top-0 left-0 right-0 z-50 bg-bg/85 backdrop-blur-md border-b border-line">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+        <!-- Name -->
+        <a href="/" class="font-serif text-xl font-medium tracking-tight text-ink hover:text-accent transition-colors whitespace-nowrap">
             Nathan Anderson
         </a>
-        
+
         <!-- Desktop Navigation -->
-        <nav class="hidden lg:flex items-center space-x-6 text-sm font-medium text-slate-400">
-            <a href="#about" class="hover:text-sky-400 transition-colors">About</a>
-            <a href="#flagships" class="hover:text-sky-400 transition-colors">Flagship Systems</a>
-            <a href="#skills" class="hover:text-sky-400 transition-colors">Skills</a>
-            <a href="#research" class="hover:text-sky-400 transition-colors">Research</a>
-            <a href="#experience" class="hover:text-sky-400 transition-colors">Experience</a>
+        <nav aria-label="Primary" class="hidden md:flex items-center gap-7 text-sm font-medium text-muted">
+            <a href="#work" class="hover:text-ink transition-colors">Work</a>
+            <a href="#experience" class="hover:text-ink transition-colors">Experience</a>
+            <a href="#research" class="hover:text-ink transition-colors">Research</a>
+            <a href="#skills" class="hover:text-ink transition-colors">Skills</a>
+            <a href="#contact" class="hover:text-ink transition-colors">Contact</a>
         </nav>
 
-        <!-- Profile Links & Call to Action -->
-        <div class="flex items-center space-x-3">
-            <!-- GitHub -->
-            <a href="https://github.com/njand" target="_blank" rel="noopener noreferrer" class="hidden sm:block text-slate-400 hover:text-sky-400 transition-colors p-1 outbound-link" data-platform="GitHub" title="GitHub Profile">
+        <div class="flex items-center gap-1 sm:gap-2">
+            <!-- Profiles -->
+            <a href="https://github.com/njand" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex p-2 text-muted hover:text-ink transition-colors outbound-link" data-platform="GitHub" aria-label="GitHub profile">
                 {% include icons/github.html %}
             </a>
-
-            <!-- Hugging Face -->
-            <a href="https://huggingface.co/njand" target="_blank" rel="noopener noreferrer" class="hidden sm:block group p-1 outbound-link" data-platform="HuggingFace" title="Hugging Face Profile">
+            <a href="https://huggingface.co/njand" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex p-2 group outbound-link" data-platform="HuggingFace" aria-label="Hugging Face profile">
                 {% include icons/huggingface.html %}
             </a>
-
-            <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/in/njand/" target="_blank" rel="noopener noreferrer" class="hidden sm:block text-slate-400 hover:text-sky-400 transition-colors p-1 outbound-link" data-platform="LinkedIn" title="LinkedIn Profile">
+            <a href="https://www.linkedin.com/in/njand/" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex p-2 text-muted hover:text-ink transition-colors outbound-link" data-platform="LinkedIn" aria-label="LinkedIn profile">
                 {% include icons/linkedin.html %}
             </a>
 
-            <!-- Download Resume Button -->
-            <a href="{{ '/assets/pdf/Nathan_Anderson_Resume.pdf' | relative_url }}" id="download-cv-btn" target="_blank" download class="whitespace-nowrap px-3.5 py-1.5 text-xs font-semibold rounded-md bg-sky-500 hover:bg-sky-400 text-slate-900 transition-all shadow-md shadow-sky-500/20">
-                Download Resume
+            <!-- Theme Toggle -->
+            <button id="theme-toggle" type="button" class="p-2 text-muted hover:text-ink transition-colors" aria-label="Switch color theme">
+                <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+                <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path stroke-linecap="round" d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4m11.4-11.4 1.4-1.4"/></svg>
+            </button>
+
+            <!-- Resume -->
+            <a href="{{ '/assets/pdf/Nathan_Anderson_Resume.pdf' | relative_url }}" id="download-cv-btn" target="_blank" class="ml-1 whitespace-nowrap px-3.5 py-1.5 text-sm font-semibold rounded-md bg-accent text-accent-ink hover:bg-accent/90 transition-colors">
+                Resume
             </a>
 
-            <!-- Mobile Hamburger Menu Button -->
-            <button id="mobile-menu-toggle" type="button" class="lg:hidden p-1.5 text-slate-400 hover:text-slate-100 focus:outline-none" aria-label="Toggle Navigation">
-                <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-toggle" type="button" class="md:hidden p-2 text-muted hover:text-ink" aria-label="Toggle navigation" aria-controls="mobile-menu">
+                <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
-                <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                 </svg>
             </button>
         </div>
     </div>
 
-    <!-- Mobile Navigation Dropdown Menu -->
-    <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-4 space-y-2 text-sm font-medium">
-        <a href="#about" class="block py-2 text-slate-300 hover:text-sky-400 transition-colors">About</a>
-        <a href="#flagships" class="block py-2 text-slate-300 hover:text-sky-400 transition-colors">Flagship Systems</a>
-        <a href="#skills" class="block py-2 text-slate-300 hover:text-sky-400 transition-colors">Skills</a>
-        <a href="#research" class="block py-2 text-slate-300 hover:text-sky-400 transition-colors">Research</a>
-        <a href="#experience" class="block py-2 text-slate-300 hover:text-sky-400 transition-colors">Experience</a>
-    </div>
+    <!-- Mobile Navigation -->
+    <nav id="mobile-menu" aria-label="Mobile" class="hidden md:hidden bg-bg border-b border-line px-4 pt-2 pb-4 text-base font-medium">
+        <a href="#work" class="block py-2.5 text-body hover:text-accent">Work</a>
+        <a href="#experience" class="block py-2.5 text-body hover:text-accent">Experience</a>
+        <a href="#research" class="block py-2.5 text-body hover:text-accent">Research</a>
+        <a href="#skills" class="block py-2.5 text-body hover:text-accent">Skills</a>
+        <a href="#contact" class="block py-2.5 text-body hover:text-accent">Contact</a>
+    </nav>
 </header>

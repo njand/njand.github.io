@@ -1,245 +1,275 @@
-<section id="flagships" class="scroll-mt-24 space-y-12">
-    <div>
-        <div class="text-xs font-mono uppercase tracking-wider text-sky-400 font-semibold">Applied ML Systems</div>
-        <h2 class="text-3xl font-bold text-slate-50 mt-1">Flagship Systems</h2>
+<section id="work" class="scroll-mt-24 space-y-10">
+    <div class="space-y-2">
+        <p class="eyebrow">Applied ML Systems</p>
+        <h2 class="section-title">Selected Work</h2>
     </div>
 
-    <!-- Case Study 1 -->
-    <div class="p-6 md:p-8 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-900/60 border border-slate-800 shadow-xl space-y-6 hover:border-sky-500/30 transition-all backdrop-blur-sm">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-800 pb-4">
-            <div>
-                <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">Speech Modeling</span>
-                <h3 class="text-2xl font-bold text-slate-50 mt-2">Automated Multilingual Language Proficiency Assessment System</h3>
+    <!-- ============ Case Study 1: Oral Proficiency Assessment ============ -->
+    <article class="rounded-2xl border border-line bg-surface p-6 sm:p-10 space-y-8">
+        <header class="space-y-3">
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm">
+                <span class="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider px-2 py-0.5 rounded border border-warn/40 text-warn"><span class="w-1.5 h-1.5 rounded-full bg-warn"></span>Validated offline</span>
+                <span class="text-muted">Speech modeling · Role: NLP Research Lead</span>
             </div>
-            <div class="text-xs text-slate-400 font-mono bg-slate-950/80 px-3 py-1.5 rounded-lg border border-slate-800">Role: NLP Research Lead</div>
+            <h3 class="font-serif text-3xl sm:text-4xl font-medium tracking-tight text-ink">Automated Multilingual Oral Proficiency Assessment</h3>
+            <p class="text-lg text-ink max-w-prose">Raised agreement with trained human raters from 0.36 to <strong class="font-semibold text-accent">0.86 QWK</strong> over the incumbent vendor in a gold-standard offline evaluation, with conservatively projected savings of ~$225k a year.</p>
+        </header>
+
+        <div class="grid md:grid-cols-3 gap-6 md:gap-8 border-t border-line pt-6">
+            <div>
+                <h4 class="eyebrow text-muted">Problem</h4>
+                <p class="mt-2 text-[0.95rem]">The organization relied on a legacy vendor costing $300k/year that supported only 9 languages and agreed poorly with trained human raters (QWK 0.36). The goal was an in-house scorer that matched human judgment more closely and could scale to more languages at lower cost.</p>
+            </div>
+            <div>
+                <h4 class="eyebrow text-muted">My Role</h4>
+                <p class="mt-2 text-[0.95rem]">Built the initial prototype independently, directed up to 8 research assistants through dozens of architecture and feature experiments, and wrote the Azure ML deployment pipeline.</p>
+            </div>
+            <div>
+                <h4 class="eyebrow text-muted">Status</h4>
+                <p class="mt-2 text-[0.95rem]">Built and validated offline; outperformed the incumbent vendor. Not yet deployed.</p>
+            </div>
         </div>
 
-        <div class="flex flex-wrap gap-2">
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">PyTorch</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">Transformers</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">mmBERT</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">PEFT / LoRA</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">Praat</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">spaCy</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">Whisper</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">Azure Speech</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">Azure ML Studio</span>
+        <!-- Pipeline diagram -->
+        <figure class="space-y-3">
+            <figcaption class="eyebrow text-muted">System Architecture</figcaption>
+            <ol class="grid gap-3 lg:grid-cols-[1fr_auto_1fr_auto_1.3fr_auto_1.6fr_auto_1fr] items-stretch text-sm">
+                <li class="rounded-lg border border-line bg-sunken p-3">
+                    <div class="font-semibold text-ink">Learner speech</div>
+                    <div class="text-muted text-xs mt-1">Millions of audio samples, Azure batch jobs</div>
+                </li>
+                <li aria-hidden="true" class="flex items-center justify-center text-muted"><span class="lg:hidden">↓</span><span class="hidden lg:inline">→</span></li>
+                <li class="rounded-lg border border-line bg-sunken p-3">
+                    <div class="font-semibold text-ink">Whisper ASR</div>
+                    <div class="text-muted text-xs mt-1">Transcribes learner speech</div>
+                </li>
+                <li aria-hidden="true" class="flex items-center justify-center text-muted"><span class="lg:hidden">↓</span><span class="hidden lg:inline">→</span></li>
+                <li class="rounded-lg border border-line bg-sunken p-3 space-y-1.5">
+                    <div class="font-semibold text-ink">Features</div>
+                    <div class="text-xs"><span class="font-mono text-accent">Praat</span> <span class="text-muted">rate of speech, pause frequency, pause duration</span></div>
+                    <div class="text-xs"><span class="font-mono text-accent">spaCy</span> <span class="text-muted">morpho-syntactic text features</span></div>
+                </li>
+                <li aria-hidden="true" class="flex items-center justify-center text-muted"><span class="lg:hidden">↓</span><span class="hidden lg:inline">→</span></li>
+                <li class="rounded-lg border border-accent/40 bg-accent-soft p-3 space-y-1.5">
+                    <div class="font-semibold text-ink">mmBERT, trained in 3 stages</div>
+                    <div class="text-xs text-body"><span class="font-mono text-accent">1</span> Large-scale score pretraining</div>
+                    <div class="text-xs text-body"><span class="font-mono text-accent">2</span> Fine-tuning on OPIc/ACTFL human-rater scores</div>
+                    <div class="text-xs text-body"><span class="font-mono text-accent">3</span> Per-language LoRA adapters</div>
+                </li>
+                <li aria-hidden="true" class="flex items-center justify-center text-muted"><span class="lg:hidden">↓</span><span class="hidden lg:inline">→</span></li>
+                <li class="rounded-lg border border-line bg-sunken p-3">
+                    <div class="font-semibold text-ink">Proficiency score</div>
+                    <div class="text-muted text-xs mt-1">Predicted proficiency level</div>
+                </li>
+            </ol>
+        </figure>
+
+        <!-- Model vs vendor -->
+        <figure class="rounded-xl border border-line p-5 sm:p-6 space-y-5">
+            <figcaption class="flex flex-wrap items-baseline justify-between gap-2">
+                <span class="font-semibold text-ink">Offline validation results (gold-standard, 3 languages)</span>
+                <span class="flex items-center gap-4 text-xs text-muted">
+                    <span class="inline-flex items-center gap-1.5"><span class="w-3 h-2.5 rounded-sm bg-accent"></span>This system</span>
+                    <span class="inline-flex items-center gap-1.5"><span class="w-3 h-2.5 rounded-sm bg-vendor"></span>Legacy vendor</span>
+                </span>
+            </figcaption>
+            <div class="grid sm:grid-cols-3 gap-6">
+                <div class="space-y-2">
+                    <div class="text-sm text-ink">Quadratic weighted κ <span class="text-muted text-xs">higher is better</span></div>
+                    <div class="flex items-center gap-3"><div class="bar-track flex-1"><div class="bar-fill bg-accent" style="width:86%"></div></div><span class="font-mono text-sm text-ink w-10 text-right">0.86</span></div>
+                    <div class="flex items-center gap-3"><div class="bar-track flex-1"><div class="bar-fill bg-vendor" style="width:36%"></div></div><span class="font-mono text-sm text-muted w-10 text-right">0.36</span></div>
+                </div>
+                <div class="space-y-2">
+                    <div class="text-sm text-ink">Spearman correlation <span class="text-muted text-xs">higher is better</span></div>
+                    <div class="flex items-center gap-3"><div class="bar-track flex-1"><div class="bar-fill bg-accent" style="width:86%"></div></div><span class="font-mono text-sm text-ink w-10 text-right">0.86</span></div>
+                    <div class="flex items-center gap-3"><div class="bar-track flex-1"><div class="bar-fill bg-vendor" style="width:44%"></div></div><span class="font-mono text-sm text-muted w-10 text-right">0.44</span></div>
+                </div>
+                <div class="space-y-2">
+                    <div class="text-sm text-ink">Mean absolute error <span class="text-muted text-xs">lower is better</span></div>
+                    <div class="flex items-center gap-3"><div class="bar-track flex-1"><div class="bar-fill bg-accent" style="width:55%"></div></div><span class="font-mono text-sm text-ink w-10 text-right">0.55</span></div>
+                    <div class="flex items-center gap-3"><div class="bar-track flex-1"><div class="bar-fill bg-vendor" style="width:68%"></div></div><span class="font-mono text-sm text-muted w-10 text-right">0.68</span></div>
+                </div>
+            </div>
+            <p class="text-sm text-muted border-t border-line pt-4">
+                Models built for 9 languages. Gold-standard evaluation on 3 languages with professionally trained raters on held-out speakers; the other 6 validated against the vendor (Spearman &gt; 0.8 for all). Projected savings of ~$225k/yr (~75%) are a conservative estimate.
+            </p>
+        </figure>
+
+        <p class="font-mono text-xs text-muted leading-relaxed">PyTorch · Transformers · mmBERT · PEFT / LoRA · Praat · spaCy · Whisper · Azure Speech · Azure ML Studio</p>
+    </article>
+
+    <!-- ============ Case Study 2: Multilingual GEC ============ -->
+    <article class="rounded-2xl border border-line bg-surface p-6 sm:p-10 space-y-8">
+        <header class="space-y-3">
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm">
+                <span class="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider px-2 py-0.5 rounded border border-good/40 text-good"><span class="w-1.5 h-1.5 rounded-full bg-good"></span>Deployed</span>
+                <span class="text-muted">LLMs · Computer-assisted language learning · Role: NLP Research Lead</span>
+            </div>
+            <h3 class="font-serif text-3xl sm:text-4xl font-medium tracking-tight text-ink">Multilingual Grammatical Error Correction Feedback</h3>
+            <p class="text-lg text-ink max-w-prose">LLM grammar feedback adapted to learner proficiency, shipped in <strong class="font-semibold text-accent">41 languages</strong> to 5,000+ learners a year after automated and educator evaluation.</p>
+        </header>
+
+        <div class="grid lg:grid-cols-[1.4fr_1fr] gap-8 border-t border-line pt-6">
+            <div class="grid sm:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="eyebrow text-muted">Problem</h4>
+                    <p class="mt-2 text-[0.95rem]">Novice learners across 60+ languages needed grammar feedback pitched at their level, and every language had to meet safety and accuracy thresholds before release.</p>
+                </div>
+                <div>
+                    <h4 class="eyebrow text-muted">Approach</h4>
+                    <p class="mt-2 text-[0.95rem]">Few-shot prompting with Pydantic structured outputs via the OpenAI API, an automated multi-model evaluation harness, and human-in-the-loop review by educators.</p>
+                </div>
+            </div>
+
+            <!-- Evaluated vs deployed -->
+            <figure class="rounded-xl border border-line p-5 space-y-4">
+                <figcaption class="font-semibold text-ink">From evaluation to release</figcaption>
+                <div class="space-y-1.5">
+                    <div class="flex justify-between text-sm"><span>Languages evaluated</span><span class="font-mono text-ink">60+</span></div>
+                    <div class="bar-track"><div class="bar-fill bg-vendor" style="width:100%"></div></div>
+                </div>
+                <div class="space-y-1.5">
+                    <div class="flex justify-between text-sm"><span>Languages deployed</span><span class="font-mono text-ink">41</span></div>
+                    <div class="bar-track"><div class="bar-fill bg-accent" style="width:68%"></div></div>
+                </div>
+                <div class="flex justify-between items-baseline border-t border-line pt-3 text-sm">
+                    <span>Learners reached</span><span class="font-mono text-2xl text-ink">5,000+<span class="text-sm text-muted"> /yr</span></span>
+                </div>
+            </figure>
         </div>
 
-        <p class="text-xs text-slate-300 bg-slate-950/70 border border-amber-400/30 rounded-lg px-3 py-2">
-            <strong class="text-amber-300">Status:</strong> Built and validated offline; outperformed the incumbent vendor. Not yet deployed.
-        </p>
-
-        <div class="grid md:grid-cols-2 gap-6">
-            <div class="space-y-3">
-                <h4 class="text-sm font-semibold text-slate-200 uppercase tracking-wide">The Challenge & Problem</h4>
-                <p class="text-sm text-slate-300 leading-relaxed">
-                    The organization relied on a legacy vendor costing $300k/year that supported only 9 languages and agreed poorly with trained human raters (QWK 0.36). The goal was an in-house scorer that matched human judgment more closely and could scale to more languages at lower cost.
-                </p>
-                <h4 class="text-sm font-semibold text-slate-200 uppercase tracking-wide pt-2">My Role</h4>
-                <p class="text-sm text-slate-300 leading-relaxed">
-                    Built the initial prototype independently, directed up to 8 research assistants through dozens of architecture and feature experiments, and wrote the Azure ML deployment pipeline.
-                </p>
-                <h4 class="text-sm font-semibold text-slate-200 uppercase tracking-wide pt-2">System Architecture</h4>
-                <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside">
-                    <li><strong class="text-slate-100">ASR Front End:</strong> <code class="font-mono text-sky-300">Whisper</code> transcribes learner speech, run as Azure batch jobs over millions of audio samples.</li>
-                    <li><strong class="text-slate-100">Features:</strong> Acoustic fluency metrics via <code class="font-mono text-sky-300">Praat</code> (rate of speech, pause frequency, pause duration) and morpho-syntactic text features via <code class="font-mono text-sky-300">spaCy</code>.</li>
-                    <li><strong class="text-slate-100">Modeling:</strong> Multilingual Modern BERT (<code class="font-mono text-sky-300">mmBERT</code>) trained in three stages: (1) large-scale score pretraining, (2) fine-tuning on OPIc/ACTFL human-rater scores, (3) per-language <code class="font-mono text-sky-300">LoRA</code> adapters.</li>
+        <details class="details border-t border-line pt-5">
+            <summary>Technical details</summary>
+            <div class="mt-4 space-y-3 text-[0.95rem] max-w-prose">
+                <p>Built an LLM-powered grammatical error correction and pedagogical feedback engine, adapted to learner proficiency, for novice learners across 60+ languages. It pairs an automated multi-model evaluation harness and a prompt engineering pipeline with an educator-driven QA process that benchmarked outputs against safety and accuracy thresholds.</p>
+                <ul class="list-disc pl-5 space-y-2 marker:text-accent">
+                    <li><strong class="text-ink">Structured outputs and automated few-shot curation:</strong> Prompt pipelines automatically generated and vetted few-shot examples for low-resource languages. <code class="font-mono text-sm text-accent">Pydantic</code> schemas, enforced through OpenAI Structured Outputs, kept every correction and explanation 100% parseable.</li>
+                    <li><strong class="text-ink">Cross-model evaluation harness:</strong> Compared multiple LLMs and providers with an automated multi-run harness. Multi-pass inference over educator-authored 10-sentence paired test sets (correct vs. learner-error variants) accounted for non-deterministic model behavior.</li>
+                    <li><strong class="text-ink">Educator coordination:</strong> Coordinated evaluation with dozens of qualified teachers and tutors across 60+ languages to score model feedback, analyze error patterns, and isolate language-specific failure modes.</li>
+                    <li><strong class="text-ink">Iteration to release:</strong> Iterated on model selection, prompt design, and few-shot examples for failing languages until they met release criteria. Languages shipped only after educator ratings cleared thresholds tracked in automated scoring dashboards.</li>
                 </ul>
             </div>
+        </details>
 
-            <div class="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-4">
-                <h4 class="text-sm font-semibold text-emerald-400 uppercase tracking-wide">Offline Validation Results (Gold-Standard, 3 Languages)</h4>
-                <div class="grid grid-cols-2 gap-3 text-center">
-                    <div class="p-3 bg-slate-900 rounded-lg border border-slate-800">
-                        <div class="text-xs text-slate-400">Quadratic Weighted Kappa</div>
-                        <div class="text-xl font-bold text-emerald-400 font-mono mt-1">0.86 <span class="text-xs text-slate-500 font-normal">(vs 0.36)</span></div>
-                    </div>
-                    <div class="p-3 bg-slate-900 rounded-lg border border-slate-800">
-                        <div class="text-xs text-slate-400">Spearman Correlation</div>
-                        <div class="text-xl font-bold text-emerald-400 font-mono mt-1">0.86 <span class="text-xs text-slate-500 font-normal">(vs 0.44)</span></div>
-                    </div>
-                    <div class="p-3 bg-slate-900 rounded-lg border border-slate-800">
-                        <div class="text-xs text-slate-400">Mean Absolute Error</div>
-                        <div class="text-xl font-bold text-emerald-400 font-mono mt-1">0.55 <span class="text-xs text-slate-500 font-normal">(vs 0.68)</span></div>
-                    </div>
-                    <div class="p-3 bg-slate-900 rounded-lg border border-slate-800">
-                        <div class="text-xs text-slate-400">Projected Savings</div>
-                        <div class="text-xl font-bold text-emerald-400 font-mono mt-1">~$225k/yr <span class="text-xs text-slate-500 font-normal">(~75%)</span></div>
-                    </div>
+        <p class="font-mono text-xs text-muted leading-relaxed">OpenAI API · Pydantic · Few-shot prompting · Multi-LLM benchmarking · Human-in-the-loop evals · Python</p>
+    </article>
+
+    <!-- ============ Case Study 3: Latin ASR ============ -->
+    <article id="latin-asr-demo" class="scroll-mt-24 rounded-2xl border border-line bg-surface p-6 sm:p-10 space-y-8">
+        <header class="space-y-3">
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm">
+                <span class="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider px-2 py-0.5 rounded border border-accent/40 text-accent"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Open source · Live demo</span>
+                <span class="text-muted">Low-resource speech · Role: Solo engineer</span>
+            </div>
+            <h3 class="font-serif text-3xl sm:text-4xl font-medium tracking-tight text-ink">Low-Resource Latin Speech Recognition</h3>
+            <p class="text-lg text-ink max-w-prose">Cut word error rate from 13.2% to <strong class="font-semibold text-accent">8.7%</strong> on 10 hours of hand-transcribed Latin, then released the models, a post-processing dataset, code, and a live demo.</p>
+        </header>
+
+        <div class="grid lg:grid-cols-[1.4fr_1fr] gap-8 border-t border-line pt-6">
+            <div class="grid sm:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="eyebrow text-muted">Problem</h4>
+                    <p class="mt-2 text-[0.95rem]">Latin in restored classical pronunciation is a low-resource language for speech: the training data is just 10 hours of hand-transcribed audio.</p>
                 </div>
-                <p class="text-xs text-slate-400 italic">
-                    Models built for 9 languages. Gold-standard evaluation on 3 languages with professionally trained raters on held-out speakers; the other 6 validated against the vendor (Spearman &gt; 0.8 for all). Savings are a conservative projection.
-                </p>
+                <div>
+                    <h4 class="eyebrow text-muted">Approach</h4>
+                    <p class="mt-2 text-[0.95rem]">Fine-tuned <code class="font-mono text-sm text-accent">wav2vec2-xls-r-300m</code> on Modal, added Optuna-tuned KenLM decoding, and trained a <code class="font-mono text-sm text-accent">latin-bert</code> labeler to restore casing and punctuation.</p>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Case Study 2 -->
-    <div id="latin-asr-demo" class="p-6 md:p-8 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-900/60 border border-slate-800 shadow-xl space-y-6 hover:border-emerald-500/30 transition-all scroll-mt-28 backdrop-blur-sm">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-800 pb-4">
-            <div>
-                <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Open Source & Live Demo</span>
-                <h3 class="text-2xl font-bold text-slate-50 mt-2">Low-Resource Latin Speech Recognition Pipeline</h3>
-            </div>
-            <div class="text-xs text-slate-400 font-mono bg-slate-950/80 px-3 py-1.5 rounded-lg border border-slate-800">Role: Solo Engineer</div>
-        </div>
-
-        <!-- Tech Stack Badges -->
-        <div class="flex flex-wrap gap-2">
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">PyTorch</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">wav2vec2</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">pyctcdecode</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">KenLM</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">Optuna</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">ONNX Runtime</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">Modal (Serverless GPU)</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">Weights & Biases</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">CodeCarbon</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">GitHub Actions</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">PyPI</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">Gradio</span>
-        </div>
-
-        <!-- Narrative & Metric Highlights -->
-        <div class="space-y-3 text-sm text-slate-300 leading-relaxed">
-            <p>
-                Architected an end-to-end machine learning pipeline and post-processing engine for Latin speech recognition (restored classical pronunciation). Fine-tuned self-supervised speech representations and sequence labelers across custom datasets.
-            </p>
-            <ul class="list-disc list-inside space-y-1.5 text-slate-400 marker:text-sky-400">
-                <li><strong class="text-slate-200">Acoustic Performance:</strong> <span class="text-emerald-400 font-mono">13.20% strict WER</span> / <span class="text-emerald-400 font-mono">2.75% strict CER</span> (5-fold CV, acoustic model only; 11.54% normalized WER) from a fine-tuned <code class="font-mono text-sky-300 text-xs">wav2vec2-xls-r-300m</code> trained on 10 hours of hand-transcribed speech.</li>
-                <li><strong class="text-slate-200">LM Decoding &amp; Optuna Tuning:</strong> Optuna-tuned KenLM constrained decoding (<code class="font-mono text-sky-300 text-xs">pyctcdecode</code>, lexicon of fully inflected Latin forms) cut mean WER from 13.20% to <span class="text-emerald-400 font-mono">8.70%</span> (34% relative) and CER from 2.75% to 2.08% across all 5 folds.</li>
-                <li><strong class="text-slate-200">Contextual BERT Rescoring:</strong> Implemented a masked-LM pseudo-log-likelihood rescoring pass using <code class="font-mono text-sky-300 text-xs">latin-bert</code> to re-rank candidate beams. Not separately benchmarked: latin-bert's pretraining corpus likely overlaps the evaluation text, so a clean measurement isn't possible.</li>
-                <li><strong class="text-slate-200">Casing &amp; Punctuation Restoration (ITN):</strong> Fine-tuned <code class="font-mono text-sky-300 text-xs">latin-bert</code> as a 14-class sequence labeler (casing × trailing punctuation): <span class="text-emerald-400 font-mono">casing F1 0.92</span>, <span class="text-emerald-400 font-mono">punctuation F1 0.69</span>, macro F1 0.65 on a 95/5 holdout (98% / 94% token accuracy). Punctuation restoration involves real judgment calls, so even trained humans won't reach 1.0. Published to PyPI as <code class="font-mono text-sky-300 text-xs">latin-itn</code>.</li>
-                <li><strong class="text-slate-200">Quantization Tradeoffs:</strong> ASR weights exported to <code class="font-mono text-sky-300 text-xs">ONNX INT8</code> for a <strong class="text-slate-200">72% size reduction</strong> (1.26 GB to 355 MB) and ~3x faster CPU inference. For the post-processor, INT8 sped inference 2.2x but cut punctuation F1 by about 11 points, masked by stable top-line accuracy, so I recommend FP32 for quality-critical use.</li>
-                <li><strong class="text-slate-200">Released ITN Dataset:</strong> ~11M tokens / ~360k samples built with linguistically informed normalization: praenomen expansion with grammatical agreement, Roman numeral to cardinal conversion, and classical i/u orthography.</li>
-                <li><strong class="text-slate-200">Serverless MLOps &amp; Telemetry:</strong> Automated remote multi-GPU training on Modal (NVIDIA L4 instances) with persistent caching, Weights &amp; Biases experiment tracking, CodeCarbon emissions logging, and GitHub Actions CI.</li>
-            </ul>
-            <p class="text-xs text-slate-500 italic">The speech dataset is private for copyright reasons; models, the post-processing dataset, and code are public.</p>
+            <!-- Error rate bars -->
+            <figure class="rounded-xl border border-line p-5 space-y-4">
+                <figcaption class="flex flex-wrap items-baseline justify-between gap-2">
+                    <span class="font-semibold text-ink">Error rates, 5-fold CV</span>
+                    <span class="flex items-center gap-3 text-xs text-muted">
+                        <span class="inline-flex items-center gap-1.5"><span class="w-3 h-2.5 rounded-sm bg-vendor"></span>Acoustic only</span>
+                        <span class="inline-flex items-center gap-1.5"><span class="w-3 h-2.5 rounded-sm bg-accent"></span>+ KenLM</span>
+                    </span>
+                </figcaption>
+                <div class="space-y-2">
+                    <div class="text-sm text-ink">Strict WER <span class="text-muted text-xs">−34% relative</span></div>
+                    <div class="flex items-center gap-3"><div class="bar-track flex-1"><div class="bar-fill bg-vendor" style="width:88%"></div></div><span class="font-mono text-sm text-muted w-14 text-right">13.20%</span></div>
+                    <div class="flex items-center gap-3"><div class="bar-track flex-1"><div class="bar-fill bg-accent" style="width:58%"></div></div><span class="font-mono text-sm text-ink w-14 text-right">8.70%</span></div>
+                </div>
+                <div class="space-y-2">
+                    <div class="text-sm text-ink">Strict CER</div>
+                    <div class="flex items-center gap-3"><div class="bar-track flex-1"><div class="bar-fill bg-vendor" style="width:18.3%"></div></div><span class="font-mono text-sm text-muted w-14 text-right">2.75%</span></div>
+                    <div class="flex items-center gap-3"><div class="bar-track flex-1"><div class="bar-fill bg-accent" style="width:13.9%"></div></div><span class="font-mono text-sm text-ink w-14 text-right">2.08%</span></div>
+                </div>
+                <p class="text-xs text-muted">Bars share a 0–15% scale.</p>
+            </figure>
         </div>
 
         <!-- Project Links -->
         <div class="flex flex-wrap gap-2">
-            <a href="https://github.com/njand/latin-asr" target="_blank" rel="noopener noreferrer" class="outbound-link px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-950 text-slate-300 hover:text-sky-300 border border-slate-800 hover:border-sky-500/40 transition-all" data-platform="GitHub">Code: latin-asr ↗</a>
-            <a href="https://huggingface.co/njand/wav2vec2-xls-r-latin" target="_blank" rel="noopener noreferrer" class="outbound-link px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-950 text-slate-300 hover:text-sky-300 border border-slate-800 hover:border-sky-500/40 transition-all" data-platform="HuggingFace">ASR Model ↗</a>
-            <a href="https://huggingface.co/spaces/njand/latin-asr-demo" target="_blank" rel="noopener noreferrer" class="outbound-link px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-950 text-slate-300 hover:text-sky-300 border border-slate-800 hover:border-sky-500/40 transition-all" data-platform="HuggingFace">Live Demo ↗</a>
-            <a href="https://huggingface.co/njand/latin-asr-postprocessor" target="_blank" rel="noopener noreferrer" class="outbound-link px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-950 text-slate-300 hover:text-sky-300 border border-slate-800 hover:border-sky-500/40 transition-all" data-platform="HuggingFace">Post-Processor Model ↗</a>
-            <a href="https://huggingface.co/datasets/njand/latin-asr-post-processing-dataset" target="_blank" rel="noopener noreferrer" class="outbound-link px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-950 text-slate-300 hover:text-sky-300 border border-slate-800 hover:border-sky-500/40 transition-all" data-platform="HuggingFace">ITN Dataset ↗</a>
-            <a href="https://github.com/njand/latin-asr-postprocess" target="_blank" rel="noopener noreferrer" class="outbound-link px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-950 text-slate-300 hover:text-sky-300 border border-slate-800 hover:border-sky-500/40 transition-all" data-platform="GitHub">Code: latin-asr-postprocess ↗</a>
-            <a href="https://pypi.org/project/latin-itn/" target="_blank" rel="noopener noreferrer" class="outbound-link px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-950 text-slate-300 hover:text-sky-300 border border-slate-800 hover:border-sky-500/40 transition-all" data-platform="PyPI">PyPI: latin-itn ↗</a>
+            <a href="https://github.com/njand/latin-asr" target="_blank" rel="noopener noreferrer" class="outbound-link chip hover:border-accent hover:text-accent transition-colors" data-platform="GitHub">Code: latin-asr ↗</a>
+            <a href="https://huggingface.co/njand/wav2vec2-xls-r-latin" target="_blank" rel="noopener noreferrer" class="outbound-link chip hover:border-accent hover:text-accent transition-colors" data-platform="HuggingFace">ASR model ↗</a>
+            <a href="https://huggingface.co/spaces/njand/latin-asr-demo" target="_blank" rel="noopener noreferrer" class="outbound-link chip hover:border-accent hover:text-accent transition-colors" data-platform="HuggingFace">Live demo ↗</a>
+            <a href="https://huggingface.co/njand/latin-asr-postprocessor" target="_blank" rel="noopener noreferrer" class="outbound-link chip hover:border-accent hover:text-accent transition-colors" data-platform="HuggingFace">Post-processor model ↗</a>
+            <a href="https://huggingface.co/datasets/njand/latin-asr-post-processing-dataset" target="_blank" rel="noopener noreferrer" class="outbound-link chip hover:border-accent hover:text-accent transition-colors" data-platform="HuggingFace">ITN dataset ↗</a>
+            <a href="https://github.com/njand/latin-asr-postprocess" target="_blank" rel="noopener noreferrer" class="outbound-link chip hover:border-accent hover:text-accent transition-colors" data-platform="GitHub">Code: latin-asr-postprocess ↗</a>
+            <a href="https://pypi.org/project/latin-itn/" target="_blank" rel="noopener noreferrer" class="outbound-link chip hover:border-accent hover:text-accent transition-colors" data-platform="PyPI">PyPI: latin-itn ↗</a>
         </div>
 
-        <!-- Interactive HuggingFace Embed Wrapper -->
-        <div class="relative w-full rounded-xl overflow-hidden border border-slate-800 bg-slate-950 min-h-[380px] flex items-center justify-center">
+        <!-- Interactive Hugging Face Embed (loads only on click) -->
+        <div class="no-print relative w-full rounded-xl overflow-hidden border border-line bg-sunken min-h-[320px] flex items-center justify-center">
             <div id="hf-placeholder" class="text-center p-6 space-y-4">
-                <div class="w-12 h-12 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center mx-auto text-sky-400">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"/></svg>
+                <div class="w-12 h-12 rounded-full border border-line bg-surface flex items-center justify-center mx-auto text-accent">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.5a6.5 6.5 0 0 0 6.5-6.5M12 18.5A6.5 6.5 0 0 1 5.5 12M12 18.5V22m0-7a3 3 0 0 0 3-3V5a3 3 0 1 0-6 0v7a3 3 0 0 0 3 3z"/></svg>
                 </div>
                 <div>
-                    <h4 class="text-base font-semibold text-slate-200">Interactive Latin Speech Recognition Demo</h4>
-                    <p class="text-xs text-slate-400 max-w-md mx-auto mt-1">Load the Hugging Face Space model container to record audio or upload sample files for live inference.</p>
-                    <p class="text-[11px] text-slate-500 max-w-md mx-auto mt-1">The Space may take 30–60 seconds to wake up if it has been idle.</p>
+                    <h4 class="font-semibold text-ink">Try it: Latin speech recognition demo</h4>
+                    <p class="text-sm text-muted max-w-md mx-auto mt-1">Record audio or upload a sample file for live inference on Hugging Face.</p>
+                    <p class="text-xs text-muted max-w-md mx-auto mt-1">The Space may take 30–60 seconds to wake up if it has been idle.</p>
                 </div>
                 <div class="flex flex-wrap justify-center gap-3">
-                    <button id="load-hf-space-btn" class="px-4 py-2 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-950 text-xs font-semibold transition-all shadow-md shadow-sky-500/20">
-                        Launch Live Model Demo
-                    </button>
-                    <a href="https://huggingface.co/spaces/njand/latin-asr-demo" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 text-xs font-semibold transition-all inline-flex items-center gap-1.5">
-                        Open Demo in New Tab
-                    </a>
+                    <button id="load-hf-space-btn" type="button" class="btn-primary">Launch live demo</button>
+                    <a href="https://huggingface.co/spaces/njand/latin-asr-demo" target="_blank" rel="noopener noreferrer" class="btn-ghost">Open in new tab ↗</a>
                 </div>
             </div>
-            <iframe id="hf-space-iframe" class="hidden w-full h-[450px] border-0" data-src="https://njand-latin-asr-demo.hf.space" allow="microphone" title="Latin ASR Gradio Demo"></iframe>
-        </div>
-    </div>
-
-    <!-- Case Study 3 -->
-    <div class="p-6 md:p-8 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-900/60 border border-slate-800 shadow-xl space-y-6 hover:border-sky-500/30 transition-all backdrop-blur-sm">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-800 pb-4">
-            <div>
-                <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">LLM Benchmarking & Computer-Assisted Language Learning</span>
-                <h3 class="text-2xl font-bold text-slate-50 mt-2">Multilingual Grammatical Error Correction (GEC) System</h3>
-            </div>
-            <div class="text-xs text-slate-400 font-mono bg-slate-950/80 px-3 py-1.5 rounded-lg border border-slate-800">Role: NLP Research Lead</div>
+            <iframe id="hf-space-iframe" class="hidden w-full h-[450px] border-0" data-src="https://njand-latin-asr-demo.hf.space" allow="microphone" title="Latin ASR Gradio demo"></iframe>
         </div>
 
-        <!-- Tech Stack Badges -->
-        <div class="flex flex-wrap gap-2">
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">OpenAI API</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">Pydantic</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">Multi-LLM Benchmarking</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">Few-Shot Prompting</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">Human-in-the-Loop (HITL) Evals</span>
-            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">Python</span>
-        </div>
-
-        <div class="grid lg:grid-cols-3 gap-6">
-            <!-- Main Narrative & Engineering Highlights -->
-            <div class="lg:col-span-2 space-y-4 text-sm text-slate-300 leading-relaxed">
-                <p>
-                    Architected an LLM-powered Grammatical Error Correction (GEC) and pedagogical feedback engine, adapted to learner proficiency, targeting novice language learners across 60+ languages. Built an automated multi-model evaluation harness, dynamic prompt engineering pipeline, and educator-driven QA framework to benchmark LLM outputs against strict safety and accuracy thresholds.
-                </p>
-                <ul class="space-y-2 list-disc list-inside text-slate-400 marker:text-sky-400">
-                    <li>
-                        <strong class="text-slate-200">Structured Outputs & Automated Few-Shot Curation:</strong> Built prompt pipelines that automatically generated and vetted few-shot examples for low-resource languages. Enforced strict <code class="font-mono text-sky-300 text-xs">Pydantic</code> schemas via OpenAI Structured Outputs to guarantee 100% parseability of corrections and explanations.
-                    </li>
-                    <li>
-                        <strong class="text-slate-200">Cross-Model Evaluation Harness:</strong> Evaluated multiple LLM models and providers using an automated multi-run execution harness. Ran multi-pass inference over educator-authored 10-sentence paired test sets (correct vs. learner error variants) to account for non-deterministic model behavior.
-                    </li>
-                    <li>
-                        <strong class="text-slate-200">Large-Scale Educator Coordination:</strong> Coordinated evaluation workflows with dozens of qualified teachers and tutors across 60+ languages to score model feedback, analyze error patterns, and isolate language-specific failure modes.
-                    </li>
-                    <li>
-                        <strong class="text-slate-200">Iterative Optimization & Global Scale:</strong> Systematically iterated on model selection, prompt design, and few-shot examples for failing languages until meeting release criteria—successfully launching GEC feedback across <strong class="text-slate-200">41 target languages</strong> for over 5,000 learners annually.
-                    </li>
+        <details class="details border-t border-line pt-5">
+            <summary>Technical details</summary>
+            <div class="mt-4 space-y-3 text-[0.95rem] max-w-prose">
+                <p>An end-to-end pipeline and post-processing engine for Latin speech recognition in restored classical pronunciation, fine-tuning self-supervised speech representations and sequence labelers on custom datasets.</p>
+                <ul class="list-disc pl-5 space-y-2 marker:text-accent">
+                    <li><strong class="text-ink">Acoustic performance:</strong> 13.20% strict WER / 2.75% strict CER (5-fold CV, acoustic model only; 11.54% normalized WER) from a fine-tuned <code class="font-mono text-sm text-accent">wav2vec2-xls-r-300m</code> trained on 10 hours of hand-transcribed speech.</li>
+                    <li><strong class="text-ink">LM decoding and Optuna tuning:</strong> Optuna-tuned KenLM constrained decoding (<code class="font-mono text-sm text-accent">pyctcdecode</code>, lexicon of fully inflected Latin forms) cut mean WER from 13.20% to 8.70% (34% relative) and CER from 2.75% to 2.08% across all 5 folds.</li>
+                    <li><strong class="text-ink">Contextual BERT rescoring:</strong> Implemented a masked-LM pseudo-log-likelihood rescoring pass using <code class="font-mono text-sm text-accent">latin-bert</code> to re-rank candidate beams. Not separately benchmarked: latin-bert's pretraining corpus likely overlaps the evaluation text, so a clean measurement isn't possible.</li>
+                    <li><strong class="text-ink">Casing and punctuation restoration (ITN):</strong> Fine-tuned <code class="font-mono text-sm text-accent">latin-bert</code> as a 14-class sequence labeler (casing × trailing punctuation): casing F1 0.92, punctuation F1 0.69, macro F1 0.65 on a 95/5 holdout (98% / 94% token accuracy). Punctuation restoration involves real judgment calls, so even trained humans won't reach 1.0. Published to PyPI as <code class="font-mono text-sm text-accent">latin-itn</code>.</li>
+                    <li><strong class="text-ink">Quantization tradeoffs:</strong> ASR weights exported to <code class="font-mono text-sm text-accent">ONNX INT8</code> for a 72% size reduction (1.26 GB to 355 MB) and ~3x faster CPU inference. For the post-processor, INT8 sped inference 2.2x but cut punctuation F1 by about 11 points, masked by stable top-line accuracy, so I recommend FP32 for quality-critical use.</li>
+                    <li><strong class="text-ink">Released ITN dataset:</strong> ~11M tokens / ~360k samples built with linguistically informed normalization: praenomen expansion with grammatical agreement, Roman numeral to cardinal conversion, and classical i/u orthography.</li>
+                    <li><strong class="text-ink">Serverless MLOps and telemetry:</strong> Automated remote multi-GPU training on Modal (NVIDIA L4 instances) with persistent caching, Weights &amp; Biases experiment tracking, CodeCarbon emissions logging, and GitHub Actions CI.</li>
                 </ul>
+                <p class="text-sm text-muted">The speech dataset is private for copyright reasons; models, the post-processing dataset, and code are public.</p>
             </div>
+        </details>
 
-            <!-- Metrics & Quality Gates Card -->
-            <div class="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-4 flex flex-col justify-between">
-                <div>
-                    <h4 class="text-xs font-semibold text-emerald-400 uppercase tracking-wider mb-3">Production Scale & Quality Gates</h4>
-                    <div class="grid grid-cols-2 gap-2.5 text-center">
-                        <div class="p-2.5 bg-slate-900/90 rounded-lg border border-slate-800">
-                            <div class="text-[11px] text-slate-400">Evaluated Languages</div>
-                            <div class="text-lg font-bold text-slate-100 font-mono mt-0.5">60+</div>
-                        </div>
-                        <div class="p-2.5 bg-slate-900/90 rounded-lg border border-slate-800">
-                            <div class="text-[11px] text-slate-400">Deployed Languages</div>
-                            <div class="text-lg font-bold text-emerald-400 font-mono mt-0.5">41</div>
-                        </div>
-                    </div>
-                </div>
+        <p class="font-mono text-xs text-muted leading-relaxed">PyTorch · wav2vec2 · pyctcdecode · KenLM · Optuna · ONNX Runtime · Modal (serverless GPU) · Weights &amp; Biases · CodeCarbon · GitHub Actions · PyPI · Gradio</p>
+    </article>
 
-                <div class="pt-3 border-t border-slate-800/80">
-                    <p class="text-xs text-slate-400 italic leading-normal">
-                        Automated scoring dashboards dynamically enforced release thresholds based on educator ratings, ensuring responses were consistently accurate and pedagogically sound before deployment.
-                    </p>
-                </div>
+    <!-- ============ Other Work ============ -->
+    <div class="pt-4 space-y-6">
+        <h3 class="font-serif text-2xl font-medium text-ink">Other Work</h3>
+        <div class="grid md:grid-cols-2 gap-x-12 gap-y-6">
+            <div class="border-t border-line pt-4">
+                <h4 class="font-semibold text-ink">Data Curation &amp; Safety Pipeline</h4>
+                <p class="mt-1 text-[0.95rem]">Mined multimillion-sentence corpora across 70+ languages for pedagogical example sentences and fine-tuned a BERT safety classifier, running annotation rounds to maintain high inter-annotator agreement.</p>
             </div>
-        </div>
-    </div>
-
-    <!-- Other Work -->
-    <div class="space-y-4">
-        <h3 class="text-xl font-bold text-slate-50">Other Work</h3>
-        <div class="grid md:grid-cols-2 gap-4">
-            <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-sky-500/40 transition-colors space-y-2">
-                <h4 class="text-sm font-bold text-slate-100">Data Curation &amp; Safety Pipeline</h4>
-                <p class="text-xs text-slate-400 leading-relaxed">Mined multimillion-sentence corpora across 70+ languages for pedagogical example sentences and fine-tuned a BERT safety classifier, running annotation rounds to maintain high inter-annotator agreement.</p>
+            <div class="border-t border-line pt-4">
+                <h4 class="font-semibold text-ink">Conversational Practice Chatbot (Beta)</h4>
+                <p class="mt-1 text-[0.95rem]">Scenario-based speaking practice with STT/TTS, safety guardrails, and generated personas designed to avoid cultural stereotyping, validated in 10+ languages.</p>
             </div>
-            <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-sky-500/40 transition-colors space-y-2">
-                <h4 class="text-sm font-bold text-slate-100">Conversational Practice Chatbot (Beta)</h4>
-                <p class="text-xs text-slate-400 leading-relaxed">Scenario-based speaking practice with STT/TTS, safety guardrails, and generated personas designed to avoid cultural stereotyping, validated in 10+ languages.</p>
+            <div class="border-t border-line pt-4">
+                <h4 class="font-semibold text-ink">Latin Kindle Dictionary</h4>
+                <p class="mt-1 text-[0.95rem]">Inflected-form Latin dictionary for Kindle built from Wiktionary data, so any conjugated or declined word can be looked up while reading.</p>
             </div>
-            <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-sky-500/40 transition-colors space-y-2">
-                <h4 class="text-sm font-bold text-slate-100">Latin Kindle Dictionary</h4>
-                <p class="text-xs text-slate-400 leading-relaxed">Inflected-form Latin dictionary for Kindle built from Wiktionary data, so any conjugated or declined word can be looked up while reading.</p>
-            </div>
-            <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-sky-500/40 transition-colors space-y-2">
-                <h4 class="text-sm font-bold text-slate-100">Corpus Corporum Contribution</h4>
-                <p class="text-xs text-slate-400 leading-relaxed">Transcribed, normalized, and macronized Sebastian Castellio's Latin translation of Genesis and the four Gospels.</p>
-                <a href="https://github.com/njand/biblia-castellionis" target="_blank" rel="noopener noreferrer" class="outbound-link inline-block text-xs font-mono text-sky-400 hover:text-sky-300" data-platform="GitHub">Source on GitHub ↗</a>
+            <div class="border-t border-line pt-4">
+                <h4 class="font-semibold text-ink">Corpus Corporum Contribution</h4>
+                <p class="mt-1 text-[0.95rem]">Transcribed, normalized, and macronized Sebastian Castellio's Latin translation of Genesis and the four Gospels.</p>
+                <a href="https://github.com/njand/biblia-castellionis" target="_blank" rel="noopener noreferrer" class="outbound-link link inline-block mt-1 text-sm font-mono" data-platform="GitHub">Source on GitHub ↗</a>
             </div>
         </div>
     </div>
