@@ -1,110 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Scroll Reveal Animation using IntersectionObserver
-    const observerOptions = { threshold: 0.1 };
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
-
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (!reducedMotion) {
-        document.querySelectorAll('section, .skill-card').forEach(el => {
-            el.classList.add('fade-in-up');
-            revealObserver.observe(el);
-        });
-    }
-
-    // 2. Metric Counter Count-Up Animation
-    // The final values are rendered in the HTML so crawlers and no-JS readers see real numbers;
-    // the hero is hidden by .fade-in-up until it intersects, so resetting to 0 here is never visible.
-    const counterElements = document.querySelectorAll('[data-counter]');
-    let countersAnimated = false;
-
-    const animateCounters = () => {
-        counterElements.forEach(counter => {
-            const target = parseFloat(counter.getAttribute('data-counter'));
-            const decimals = parseInt(counter.getAttribute('data-decimals') || '0', 10);
-            const duration = 1500; // ms
-            const stepTime = 20;
-            const steps = duration / stepTime;
-            const increment = target / steps;
-            let current = 0;
-
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                counter.textContent = current.toFixed(decimals);
-            }, stepTime);
-        });
-    };
-
-    const heroSection = document.querySelector('#hero');
-    if (heroSection && !reducedMotion) {
-        counterElements.forEach(counter => {
-            const decimals = parseInt(counter.getAttribute('data-decimals') || '0', 10);
-            counter.textContent = (0).toFixed(decimals);
-        });
-        const heroObserver = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting && !countersAnimated) {
-                countersAnimated = true;
-                animateCounters();
-            }
-        }, { threshold: 0.3 });
-        heroObserver.observe(heroSection);
-    }
-
-    // 3. Skills Matrix Category Filter with Native View Transitions
-    const filterButtons = document.querySelectorAll('#skills-filter button');
-    const skillCards = document.querySelectorAll('.skill-card');
-    const skillsGrid = document.getElementById('skills-grid');
-
-    filterButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const filter = btn.getAttribute('data-filter');
-
-            // Function that applies pure DOM state updates
-            const updateLayout = () => {
-                // Update button tab active states
-                filterButtons.forEach(b => {
-                    b.classList.remove('bg-sky-500', 'text-slate-950', 'shadow-md', 'shadow-sky-500/20');
-                    b.classList.add('bg-slate-900', 'text-slate-300');
-                    b.setAttribute('aria-pressed', 'false');
-                });
-                btn.setAttribute('aria-pressed', 'true');
-                btn.classList.add('bg-sky-500', 'text-slate-950', 'shadow-md', 'shadow-sky-500/20');
-                btn.classList.remove('bg-slate-900', 'text-slate-300');
-
-                // Switch container layout
-                if (filter === 'all') {
-                    skillsGrid.className = 'grid md:grid-cols-2 gap-6';
-                } else {
-                    skillsGrid.className = 'flex flex-col gap-6 max-w-2xl mx-auto w-full';
-                }
-
-                // Show/hide matching skill cards
-                skillCards.forEach(card => {
-                    const matches = filter === 'all' || card.getAttribute('data-category') === filter;
-                    card.classList.toggle('hidden', !matches);
-                });
-            };
-
-            // Use Browser View Transition API if supported, otherwise fallback gracefully
-            if (document.startViewTransition) {
-                document.startViewTransition(() => updateLayout());
-            } else {
-                updateLayout();
-            }
-        });
-    });
-
-    // 4. Interactive HF Space Deferred Loading
+    // 1. Interactive HF Space Deferred Loading
     const loadHfBtn = document.querySelector('#load-hf-space-btn');
     const hfPlaceholder = document.querySelector('#hf-placeholder');
     const hfIframe = document.querySelector('#hf-space-iframe');
@@ -127,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Email Links & Copy to Clipboard
+    // 2. Email Links & Copy to Clipboard
     // The address is split across data attributes and only assembled on click, so it never
     // sits in the HTML or DOM for scrapers. Without JS, the links fall back to their LinkedIn href.
     const copyEmailBtn = document.getElementById('copy-email-btn');
@@ -150,7 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const domain = copyEmailBtn.getAttribute('data-domain');
             if (user && domain) {
                 const email = `${user}@${domain}`;
-                navigator.clipboard.writeText(email).then(() => {
+                const copied = navigator.clipboard ? navigator.clipboard.writeText(email) : Promise.reject();
+                copied.then(() => {
                     copyEmailText.textContent = 'Copied to Clipboard!';
                     setTimeout(() => {
                         copyEmailText.textContent = 'Copy Email Address';
@@ -163,28 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. Experience Accordion Toggle
-    document.querySelectorAll('.experience-toggle-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const parent = this.closest('.space-y-3');
-            const details = parent ? parent.querySelector('.experience-details') : null;
-            const svg = this.querySelector('svg');
-            const span = this.querySelector('span');
-
-            if (details) {
-                details.classList.toggle('hidden');
-                if (svg) svg.classList.toggle('rotate-180');
-                
-                const isExpanded = !details.classList.contains('hidden');
-                this.setAttribute('aria-expanded', String(isExpanded));
-                if (span) {
-                    span.textContent = isExpanded ? 'Hide' : 'View More';
-                }
-            }
-        });
-    });
-
-    // 7. Analytics Event Listeners & Navigation
+    // 3. Analytics Event Listeners & Navigation
     const downloadBtn = document.querySelector('#download-cv-btn');
     if (downloadBtn) {
         downloadBtn.addEventListener('click', () => {
@@ -203,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 8. Light/Dark Theme Toggle (initial theme is applied by the inline script in <head>)
+    // 4. Light/Dark Theme Toggle (initial theme is applied by the inline script in <head>)
     const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
@@ -216,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // 5. Mobile Navigation Menu
     const toggleBtn = document.getElementById('mobile-menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     const openIcon = document.getElementById('menu-icon-open');
