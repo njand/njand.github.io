@@ -9,12 +9,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    document.querySelectorAll('section, .skill-card').forEach(el => {
-        el.classList.add('fade-in-up');
-        revealObserver.observe(el);
-    });
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reducedMotion) {
+        document.querySelectorAll('section, .skill-card').forEach(el => {
+            el.classList.add('fade-in-up');
+            revealObserver.observe(el);
+        });
+    }
 
     // 2. Metric Counter Count-Up Animation
+    // The final values are rendered in the HTML so crawlers and no-JS readers see real numbers;
+    // the hero is hidden by .fade-in-up until it intersects, so resetting to 0 here is never visible.
     const counterElements = document.querySelectorAll('[data-counter]');
     let countersAnimated = false;
 
@@ -40,7 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const heroSection = document.querySelector('#hero');
-    if (heroSection) {
+    if (heroSection && !reducedMotion) {
+        counterElements.forEach(counter => {
+            const decimals = parseInt(counter.getAttribute('data-decimals') || '0', 10);
+            counter.textContent = (0).toFixed(decimals);
+        });
         const heroObserver = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting && !countersAnimated) {
                 countersAnimated = true;
