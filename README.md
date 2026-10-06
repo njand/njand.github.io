@@ -7,7 +7,7 @@ This repository contains the source code for my personal website, built with [Je
 ## About
 I am a computational linguist with an M.S. in Language Technologies from Carnegie Mellon University (LTI).  
 My work focuses on intelligent computer-assisted language learning (ICALL), low-resource NLP, and NLP for Classical Latin.
-I am the product manager for the NLP research team at the [TALL Embark Language Learning application](https://embark.churchofjesuschrist.org/embark/).
+I lead NLP research for the [TALL Embark Language Learning application](https://embark.churchofjesuschrist.org/embark/), focusing on multilingual speech and language assessment.
 
 This site includes:
 - Research interests
