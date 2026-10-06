@@ -75,7 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 filterButtons.forEach(b => {
                     b.classList.remove('bg-sky-500', 'text-slate-950', 'shadow-md', 'shadow-sky-500/20');
                     b.classList.add('bg-slate-900', 'text-slate-300');
+                    b.setAttribute('aria-pressed', 'false');
                 });
+                btn.setAttribute('aria-pressed', 'true');
                 btn.classList.add('bg-sky-500', 'text-slate-950', 'shadow-md', 'shadow-sky-500/20');
                 btn.classList.remove('bg-slate-900', 'text-slate-300');
 
@@ -149,6 +151,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     setTimeout(() => {
                         copyEmailText.textContent = 'Copy Email Address';
                     }, 2500);
+                }).catch(() => {
+                    // Clipboard access can be blocked; show the address so it can be copied manually
+                    copyEmailText.textContent = email;
                 });
             }
         });
@@ -200,8 +205,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeIcon = document.getElementById('menu-icon-close');
 
     if (toggleBtn && mobileMenu) {
+        toggleBtn.setAttribute('aria-expanded', 'false');
         toggleBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+            toggleBtn.setAttribute('aria-expanded', String(!mobileMenu.classList.contains('hidden')));
             if (openIcon) openIcon.classList.toggle('hidden');
             if (closeIcon) closeIcon.classList.toggle('hidden');
         });
@@ -209,6 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
+                toggleBtn.setAttribute('aria-expanded', 'false');
                 if (openIcon) openIcon.classList.remove('hidden');
                 if (closeIcon) closeIcon.classList.add('hidden');
             });
