@@ -1,6 +1,6 @@
 <section id="flagships" class="scroll-mt-24 space-y-12">
     <div>
-        <div class="text-xs font-mono uppercase tracking-wider text-sky-400 font-semibold">Production Machine Learning</div>
+        <div class="text-xs font-mono uppercase tracking-wider text-sky-400 font-semibold">Applied ML Systems</div>
         <h2 class="text-3xl font-bold text-slate-50 mt-1">Flagship Systems</h2>
     </div>
 
@@ -11,7 +11,7 @@
                 <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">Speech Modeling</span>
                 <h3 class="text-2xl font-bold text-slate-50 mt-2">Automated Multilingual Language Proficiency Assessment System</h3>
             </div>
-            <div class="text-xs text-slate-400 font-mono bg-slate-950/80 px-3 py-1.5 rounded-lg border border-slate-800">Role: NLP Product Manager</div>
+            <div class="text-xs text-slate-400 font-mono bg-slate-950/80 px-3 py-1.5 rounded-lg border border-slate-800">Role: NLP Research Lead</div>
         </div>
 
         <div class="flex flex-wrap gap-2">
@@ -26,21 +26,30 @@
             <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">Azure ML Studio</span>
         </div>
 
+        <p class="text-xs text-slate-300 bg-slate-950/70 border border-amber-400/30 rounded-lg px-3 py-2">
+            <strong class="text-amber-300">Status:</strong> Built and validated offline; outperformed the incumbent vendor. Not yet deployed.
+        </p>
+
         <div class="grid md:grid-cols-2 gap-6">
             <div class="space-y-3">
                 <h4 class="text-sm font-semibold text-slate-200 uppercase tracking-wide">The Challenge & Problem</h4>
                 <p class="text-sm text-slate-300 leading-relaxed">
-                    Architected an in-house automated scoring pipeline projected to yield $250k+ in recurring annual operational vendor savings (>90% infrastructure cost reduction compared to the legacy vendor system), while significantly improving correlation with trained human raters.
+                    The organization relied on a legacy vendor costing $300k/year that supported only 9 languages and agreed poorly with trained human raters (QWK 0.36). The goal was an in-house scorer that matched human judgment more closely and could scale to more languages at lower cost.
+                </p>
+                <h4 class="text-sm font-semibold text-slate-200 uppercase tracking-wide pt-2">My Role</h4>
+                <p class="text-sm text-slate-300 leading-relaxed">
+                    Built the initial prototype independently, directed up to 8 research assistants through dozens of architecture and feature experiments, and wrote the Azure ML deployment pipeline.
                 </p>
                 <h4 class="text-sm font-semibold text-slate-200 uppercase tracking-wide pt-2">System Architecture</h4>
                 <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside">
-                    <li><strong class="text-slate-100">Preprocessing:</strong> Azure batch pipeline extracting acoustic and linguistic metrics via <code class="font-mono text-sky-300">Praat</code> (rate of speech, pause frequency, pause duration) and morpho-syntactic features via <code class="font-mono text-sky-300">spaCy</code>.</li>
-                    <li><strong class="text-slate-100">Modeling Pipeline:</strong> Fine-tuned Multilingual Modern BERT (<code class="font-mono text-sky-300">mmBERT</code>) using a 3-stage transfer learning regime with parameter-efficient <code class="font-mono text-sky-300">LoRA</code> adapters per target language.</li>
+                    <li><strong class="text-slate-100">ASR Front End:</strong> <code class="font-mono text-sky-300">Whisper</code> transcribes learner speech, run as Azure batch jobs over millions of audio samples.</li>
+                    <li><strong class="text-slate-100">Features:</strong> Acoustic fluency metrics via <code class="font-mono text-sky-300">Praat</code> (rate of speech, pause frequency, pause duration) and morpho-syntactic text features via <code class="font-mono text-sky-300">spaCy</code>.</li>
+                    <li><strong class="text-slate-100">Modeling:</strong> Multilingual Modern BERT (<code class="font-mono text-sky-300">mmBERT</code>) trained in three stages: (1) large-scale score pretraining, (2) fine-tuning on OPIc/ACTFL human-rater scores, (3) per-language <code class="font-mono text-sky-300">LoRA</code> adapters.</li>
                 </ul>
             </div>
 
             <div class="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-4">
-                <h4 class="text-sm font-semibold text-emerald-400 uppercase tracking-wide">Validated Production Metrics</h4>
+                <h4 class="text-sm font-semibold text-emerald-400 uppercase tracking-wide">Offline Validation Results (Gold-Standard, 3 Languages)</h4>
                 <div class="grid grid-cols-2 gap-3 text-center">
                     <div class="p-3 bg-slate-900 rounded-lg border border-slate-800">
                         <div class="text-xs text-slate-400">Quadratic Weighted Kappa</div>
@@ -48,19 +57,19 @@
                     </div>
                     <div class="p-3 bg-slate-900 rounded-lg border border-slate-800">
                         <div class="text-xs text-slate-400">Spearman Correlation</div>
-                        <div class="text-xl font-bold text-emerald-400 font-mono mt-1">0.87 <span class="text-xs text-slate-500 font-normal">(vs 0.44)</span></div>
+                        <div class="text-xl font-bold text-emerald-400 font-mono mt-1">0.86 <span class="text-xs text-slate-500 font-normal">(vs 0.44)</span></div>
                     </div>
                     <div class="p-3 bg-slate-900 rounded-lg border border-slate-800">
                         <div class="text-xs text-slate-400">Mean Absolute Error</div>
                         <div class="text-xl font-bold text-emerald-400 font-mono mt-1">0.55 <span class="text-xs text-slate-500 font-normal">(vs 0.68)</span></div>
                     </div>
                     <div class="p-3 bg-slate-900 rounded-lg border border-slate-800">
-                        <div class="text-xs text-slate-400">Cost Savings</div>
-                        <div class="text-xl font-bold text-emerald-400 font-mono mt-1">&gt;$250k/yr</div>
+                        <div class="text-xs text-slate-400">Projected Savings</div>
+                        <div class="text-xl font-bold text-emerald-400 font-mono mt-1">~$225k/yr <span class="text-xs text-slate-500 font-normal">(~75%)</span></div>
                     </div>
                 </div>
                 <p class="text-xs text-slate-400 italic">
-                    Validated across 9 target languages, with a modular architecture engineered to scale across 30–40 languages.
+                    Models built for 9 languages. Gold-standard evaluation on 3 languages with professionally trained raters on held-out speakers; the other 6 validated against the vendor (Spearman &gt; 0.8 for all). Savings are a conservative projection.
                 </p>
             </div>
         </div>
