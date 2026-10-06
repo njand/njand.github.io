@@ -127,18 +127,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Email CTA Initialization & Copy to Clipboard
-    const emailBtn = document.getElementById('email-cta');
+    // 5. Email Links & Copy to Clipboard
+    // The address is split across data attributes and only assembled on click, so it never
+    // sits in the HTML or DOM for scrapers. Without JS, the links fall back to their LinkedIn href.
     const copyEmailBtn = document.getElementById('copy-email-btn');
     const copyEmailText = document.getElementById('copy-email-text');
 
-    if (emailBtn) {
-        const user = emailBtn.getAttribute('data-user');
-        const domain = emailBtn.getAttribute('data-domain');
-        if (user && domain) {
-            emailBtn.href = `mailto:${user}@${domain}`;
-        }
-    }
+    document.querySelectorAll('.email-link').forEach(link => {
+        link.addEventListener('click', (event) => {
+            const user = link.getAttribute('data-user');
+            const domain = link.getAttribute('data-domain');
+            if (user && domain) {
+                event.preventDefault();
+                window.location.href = `mailto:${user}@${domain}`;
+            }
+        });
+    });
 
     if (copyEmailBtn && copyEmailText) {
         copyEmailBtn.addEventListener('click', () => {

@@ -1,65 +1,83 @@
-<section id="hero" class="scroll-mt-28 space-y-10">
-    <div class="max-w-3xl space-y-4">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700/80 text-sky-400 text-xs font-mono backdrop-blur-sm">
-            <span>Carnegie Mellon Alumnus | M.S. in Language Technologies</span>
+<section id="about" class="scroll-mt-28 space-y-14">
+    <div class="grid md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-center">
+        <div class="space-y-6 order-2 md:order-1">
+            <p class="eyebrow">Applied NLP Scientist · M.S., Carnegie Mellon LTI</p>
+            <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-medium tracking-tight text-ink leading-[1.02]">
+                Nathan Anderson
+            </h1>
+            <p class="font-serif text-2xl sm:text-[1.75rem] leading-snug text-ink max-w-prose">
+                Applied NLP scientist specializing in multilingual speech and language assessment, with models built and evaluated across <span class="text-accent">70+ languages</span>.
+            </p>
+            <p class="text-body max-w-prose">
+                I build and evaluate NLP and speech models for language assessment and learning, from automated oral proficiency scoring to LLM-based grammar feedback and low-resource speech recognition, combining ML engineering with deep linguistic expertise.
+            </p>
+            <div class="flex flex-wrap gap-3 pt-1">
+                <a href="{{ '/assets/pdf/Nathan_Anderson_Resume.pdf' | relative_url }}" target="_blank" class="btn-primary">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0-4-4m4 4 4-4M5 20h14"/></svg>
+                    Download Resume
+                </a>
+                <!-- Address is assembled by JS so it never appears in the HTML; without JS this falls back to LinkedIn -->
+                <a href="https://www.linkedin.com/in/njand/" data-user="anderson.nathanjames" data-domain="gmail.com" class="email-link btn-ghost">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7l9 6 9-6M5 19h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z"/></svg>
+                    Email Me
+                </a>
+                <a href="#latin-asr-demo" class="btn-ghost">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.5a6.5 6.5 0 0 0 6.5-6.5M12 18.5A6.5 6.5 0 0 1 5.5 12M12 18.5V22m0-7a3 3 0 0 0 3-3V5a3 3 0 1 0-6 0v7a3 3 0 0 0 3 3z"/></svg>
+                    Try the Latin ASR Demo
+                </a>
+            </div>
         </div>
-        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-50 leading-tight">
-            Nathan Anderson
-        </h1>
-        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-sky-300 to-emerald-400 leading-snug">
-            Applied NLP Scientist
-        </h2>
-        <p class="text-lg text-slate-300 leading-relaxed" id="about">
-            I build and evaluate NLP and speech models for multilingual language assessment and learning, combining ML engineering with deep linguistic expertise. My work spans 70+ languages, from automated oral proficiency scoring to LLM-based grammar feedback and low-resource speech recognition.
-        </p>
-        <div class="pt-2 flex flex-wrap gap-4">
-            <a href="{{ '/assets/pdf/Nathan_Anderson_Resume.pdf' | relative_url }}" class="px-5 py-2.5 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-900 font-semibold text-sm transition-all shadow-lg shadow-sky-500/25 flex items-center gap-2">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                Download Resume
-            </a>
-            <a href="#latin-asr-demo" class="px-5 py-2.5 rounded-lg bg-slate-800/90 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 transition-all flex items-center gap-2 backdrop-blur-sm hover:border-slate-600">
-                <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                Try Live ASR Demo
-            </a>
+
+        <div class="order-1 md:order-2 justify-self-start md:justify-self-end">
+            <img src="{{ '/assets/images/headshot.webp' | relative_url }}" alt="Portrait of Nathan Anderson" width="280" height="280"
+                 class="w-36 h-36 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full object-cover ring-1 ring-line ring-offset-8 ring-offset-bg shadow-xl shadow-ink/10">
         </div>
     </div>
 
-    <!-- Impact Metric Counter Cards (final values are in the HTML; JS only animates) -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4">
-        <!-- Card 1: Rater Agreement (QWK) -->
-        <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-sky-500/40 transition-all shadow-lg hover:shadow-sky-500/10 backdrop-blur-sm group">
-            <div class="text-3xl font-extrabold text-emerald-400 font-mono tracking-tight">
-                <span data-counter="0.86" data-decimals="2">0.86</span>
-            </div>
-            <div class="mt-1 text-xs font-semibold text-slate-200 uppercase tracking-wider">Human Rater Agreement (QWK)</div>
-            <div class="mt-0.5 text-xs text-slate-400">vs 0.36 legacy vendor benchmark over 6 ordinal classes</div>
+    <!-- At a glance -->
+    <dl class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-5 border-y border-line py-6 text-sm">
+        <div>
+            <dt class="eyebrow text-muted">Current Role</dt>
+            <dd class="mt-1 text-ink">Product Manager (NLP Research Lead), Missionary Training Center</dd>
         </div>
-
-        <!-- Card 2: Deployed Languages -->
-        <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-sky-500/40 transition-all shadow-lg hover:shadow-sky-500/10 backdrop-blur-sm group">
-            <div class="text-3xl font-extrabold text-emerald-400 font-mono tracking-tight">
-                <span data-counter="41" data-decimals="0">41</span>
-            </div>
-            <div class="mt-1 text-xs font-semibold text-slate-200 uppercase tracking-wider">Languages Deployed</div>
-            <div class="mt-0.5 text-xs text-slate-400">LLM grammar feedback for 5,000+ learners a year</div>
+        <div>
+            <dt class="eyebrow text-muted">Education</dt>
+            <dd class="mt-1 text-ink">M.S. Language Technologies, CMU<br>B.A. Linguistics, BYU</dd>
         </div>
-
-        <!-- Card 3: Projected Savings -->
-        <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-sky-500/40 transition-all shadow-lg hover:shadow-sky-500/10 backdrop-blur-sm group">
-            <div class="text-3xl font-extrabold text-emerald-400 font-mono tracking-tight">
-                ~$<span data-counter="225" data-decimals="0">225</span>k
-            </div>
-            <div class="mt-1 text-xs font-semibold text-slate-200 uppercase tracking-wider">Projected Annual Savings</div>
-            <div class="mt-0.5 text-xs text-slate-400">Conservative projection vs. $300k/yr legacy vendor</div>
+        <div>
+            <dt class="eyebrow text-muted">Based In</dt>
+            <dd class="mt-1 text-ink">Tulsa, Oklahoma (Remote)</dd>
         </div>
+        <div>
+            <dt class="eyebrow text-muted">Speaks</dt>
+            <dd class="mt-1 text-ink">English, Portuguese, Spanish, Latin, Indonesian, Turkish</dd>
+        </div>
+    </dl>
 
-        <!-- Card 4: Latin ASR WER -->
-        <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-sky-500/40 transition-all shadow-lg hover:shadow-sky-500/10 backdrop-blur-sm group">
-            <div class="text-3xl font-extrabold text-emerald-400 font-mono tracking-tight">
-                <span data-counter="8.7" data-decimals="1">8.7</span>%
+    <!-- Headline results -->
+    <div>
+        <h2 class="sr-only">Headline results</h2>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-px bg-line border border-line rounded-xl overflow-hidden">
+            <div class="bg-bg p-5 sm:p-6">
+                <div class="font-mono text-4xl sm:text-5xl font-medium tracking-tight text-ink">0.86</div>
+                <div class="mt-2 text-sm font-semibold text-ink">Human rater agreement (QWK)</div>
+                <div class="mt-1 text-sm text-muted">vs 0.36 legacy vendor benchmark over 6 ordinal classes</div>
             </div>
-            <div class="mt-1 text-xs font-semibold text-slate-200 uppercase tracking-wider">Latin ASR Word Error Rate</div>
-            <div class="mt-0.5 text-xs text-slate-400">Down from 13.2% with tuned KenLM decoding (5-fold CV)</div>
+            <div class="bg-bg p-5 sm:p-6">
+                <div class="font-mono text-4xl sm:text-5xl font-medium tracking-tight text-ink">41</div>
+                <div class="mt-2 text-sm font-semibold text-ink">Languages deployed</div>
+                <div class="mt-1 text-sm text-muted">LLM grammar feedback for 5,000+ learners a year</div>
+            </div>
+            <div class="bg-bg p-5 sm:p-6">
+                <div class="font-mono text-4xl sm:text-5xl font-medium tracking-tight text-ink">~$225k</div>
+                <div class="mt-2 text-sm font-semibold text-ink">Projected annual savings</div>
+                <div class="mt-1 text-sm text-muted">Conservative projection vs. $300k/yr legacy vendor</div>
+            </div>
+            <div class="bg-bg p-5 sm:p-6">
+                <div class="font-mono text-4xl sm:text-5xl font-medium tracking-tight text-ink">8.7%</div>
+                <div class="mt-2 text-sm font-semibold text-ink">Latin ASR word error rate</div>
+                <div class="mt-1 text-sm text-muted">Down from 13.2% with tuned KenLM decoding (5-fold CV)</div>
+            </div>
         </div>
     </div>
 </section>
