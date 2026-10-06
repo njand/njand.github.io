@@ -166,8 +166,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 details.classList.toggle('hidden');
                 if (svg) svg.classList.toggle('rotate-180');
                 
+                const isExpanded = !details.classList.contains('hidden');
+                this.setAttribute('aria-expanded', String(isExpanded));
                 if (span) {
-                    const isExpanded = !details.classList.contains('hidden');
                     span.textContent = isExpanded ? 'Hide' : 'View More';
                 }
             }
