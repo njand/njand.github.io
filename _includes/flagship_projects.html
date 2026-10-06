@@ -96,6 +96,7 @@
             <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">Modal (Serverless GPU)</span>
             <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">Weights & Biases</span>
             <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">CodeCarbon</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">GitHub Actions</span>
             <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">PyPI</span>
             <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-950 text-sky-400 border border-slate-800">Gradio</span>
         </div>
@@ -106,13 +107,26 @@
                 Architected an end-to-end machine learning pipeline and post-processing engine for Latin speech recognition (restored classical pronunciation). Fine-tuned self-supervised speech representations and sequence labelers across custom datasets.
             </p>
             <ul class="list-disc list-inside space-y-1.5 text-slate-400 marker:text-sky-400">
-                <li><strong class="text-slate-200">Acoustic Performance:</strong> Achieved <span class="text-emerald-400 font-mono">12.20% Strict WER</span> / <span class="text-emerald-400 font-mono">2.74% Strict CER</span> across 5-fold cross-validation on fine-tuned <code class="font-mono text-sky-300 text-xs">wav2vec2-xls-r-300m</code> model.</li>
-                <li><strong class="text-slate-200">LM Decoding & Optuna Tuning:</strong> Further reduced acoustic error rates by combining <code class="font-mono text-sky-300 text-xs">pyctcdecode</code> with a KenLM language model built on a lexicon of fully inflected Latin unigrams. Optimized decoder parameters with <code class="font-mono text-sky-300 text-xs">optuna</code>.</li>
-                <li><strong class="text-slate-200">Contextual BERT Rescoring:</strong> Implemented a Masked Language Model Pseudo-Log-Likelihood rescoring pass using <code class="font-mono text-sky-300 text-xs">latin-bert</code> to re-rank candidate beams and resolve ambiguous acoustic predictions.</li>
-                <li><strong class="text-slate-200">Published PyPI Package for ITN:</strong> Packaged and published the post-processor to PyPI (<code class="font-mono text-sky-300 text-xs">latin-itn</code>). Fine-tuned a 14-class sequence labeler on <code class="font-mono text-sky-300 text-xs">latin-bert</code> to restore casing and punctuation on raw predictions. Achieved 98% accuracy on casing restoration and 94% accuracy on punctuation restoration.</li>
-                <li><strong class="text-slate-200">Edge Quantization:</strong> Exported PyTorch weights to <code class="font-mono text-sky-300 text-xs">ONNX INT8</code>, yielding a <strong class="text-slate-200">72% memory reduction</strong> (1.26 GB to 355 MB) and accelerating CPU inference speed by ~3x.</li>
-                <li><strong class="text-slate-200">Serverless MLOps & Telemetry:</strong> Automated remote multi-GPU training on Modal (NVIDIA L4 instances) with persistent caching, Weights & Biases experiment tracking, and CodeCarbon emissions logging.</li>
+                <li><strong class="text-slate-200">Acoustic Performance:</strong> <span class="text-emerald-400 font-mono">13.20% strict WER</span> / <span class="text-emerald-400 font-mono">2.75% strict CER</span> (5-fold CV, acoustic model only; 11.54% normalized WER) from a fine-tuned <code class="font-mono text-sky-300 text-xs">wav2vec2-xls-r-300m</code> trained on 10 hours of hand-transcribed speech.</li>
+                <li><strong class="text-slate-200">LM Decoding &amp; Optuna Tuning:</strong> Optuna-tuned KenLM constrained decoding (<code class="font-mono text-sky-300 text-xs">pyctcdecode</code>, lexicon of fully inflected Latin forms) cut mean WER from 13.20% to <span class="text-emerald-400 font-mono">8.70%</span> (34% relative) and CER from 2.75% to 2.08% across all 5 folds.</li>
+                <li><strong class="text-slate-200">Contextual BERT Rescoring:</strong> Implemented a masked-LM pseudo-log-likelihood rescoring pass using <code class="font-mono text-sky-300 text-xs">latin-bert</code> to re-rank candidate beams. Not separately benchmarked: latin-bert's pretraining corpus likely overlaps the evaluation text, so a clean measurement isn't possible.</li>
+                <li><strong class="text-slate-200">Casing &amp; Punctuation Restoration (ITN):</strong> Fine-tuned <code class="font-mono text-sky-300 text-xs">latin-bert</code> as a 14-class sequence labeler (casing × trailing punctuation): <span class="text-emerald-400 font-mono">casing F1 0.92</span>, <span class="text-emerald-400 font-mono">punctuation F1 0.69</span>, macro F1 0.65 on a 95/5 holdout (98% / 94% token accuracy). Punctuation restoration involves real judgment calls, so even trained humans won't reach 1.0. Published to PyPI as <code class="font-mono text-sky-300 text-xs">latin-itn</code>.</li>
+                <li><strong class="text-slate-200">Quantization Tradeoffs:</strong> ASR weights exported to <code class="font-mono text-sky-300 text-xs">ONNX INT8</code> for a <strong class="text-slate-200">72% size reduction</strong> (1.26 GB to 355 MB) and ~3x faster CPU inference. For the post-processor, INT8 sped inference 2.2x but cut punctuation F1 by about 11 points, masked by stable top-line accuracy, so I recommend FP32 for quality-critical use.</li>
+                <li><strong class="text-slate-200">Released ITN Dataset:</strong> ~11M tokens / ~360k samples built with linguistically informed normalization: praenomen expansion with grammatical agreement, Roman numeral to cardinal conversion, and classical i/u orthography.</li>
+                <li><strong class="text-slate-200">Serverless MLOps &amp; Telemetry:</strong> Automated remote multi-GPU training on Modal (NVIDIA L4 instances) with persistent caching, Weights &amp; Biases experiment tracking, CodeCarbon emissions logging, and GitHub Actions CI.</li>
             </ul>
+            <p class="text-xs text-slate-500 italic">The speech dataset is private for copyright reasons; models, the post-processing dataset, and code are public.</p>
+        </div>
+
+        <!-- Project Links -->
+        <div class="flex flex-wrap gap-2">
+            <a href="https://github.com/njand/latin-asr" target="_blank" rel="noopener noreferrer" class="outbound-link px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-950 text-slate-300 hover:text-sky-300 border border-slate-800 hover:border-sky-500/40 transition-all" data-platform="GitHub">Code: latin-asr ↗</a>
+            <a href="https://huggingface.co/njand/wav2vec2-xls-r-latin" target="_blank" rel="noopener noreferrer" class="outbound-link px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-950 text-slate-300 hover:text-sky-300 border border-slate-800 hover:border-sky-500/40 transition-all" data-platform="HuggingFace">ASR Model ↗</a>
+            <a href="https://huggingface.co/spaces/njand/latin-asr-demo" target="_blank" rel="noopener noreferrer" class="outbound-link px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-950 text-slate-300 hover:text-sky-300 border border-slate-800 hover:border-sky-500/40 transition-all" data-platform="HuggingFace">Live Demo ↗</a>
+            <a href="https://huggingface.co/njand/latin-asr-postprocessor" target="_blank" rel="noopener noreferrer" class="outbound-link px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-950 text-slate-300 hover:text-sky-300 border border-slate-800 hover:border-sky-500/40 transition-all" data-platform="HuggingFace">Post-Processor Model ↗</a>
+            <a href="https://huggingface.co/datasets/njand/latin-asr-post-processing-dataset" target="_blank" rel="noopener noreferrer" class="outbound-link px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-950 text-slate-300 hover:text-sky-300 border border-slate-800 hover:border-sky-500/40 transition-all" data-platform="HuggingFace">ITN Dataset ↗</a>
+            <a href="https://github.com/njand/latin-asr-postprocess" target="_blank" rel="noopener noreferrer" class="outbound-link px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-950 text-slate-300 hover:text-sky-300 border border-slate-800 hover:border-sky-500/40 transition-all" data-platform="GitHub">Code: latin-asr-postprocess ↗</a>
+            <a href="https://pypi.org/project/latin-itn/" target="_blank" rel="noopener noreferrer" class="outbound-link px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-950 text-slate-300 hover:text-sky-300 border border-slate-800 hover:border-sky-500/40 transition-all" data-platform="PyPI">PyPI: latin-itn ↗</a>
         </div>
 
         <!-- Interactive HuggingFace Embed Wrapper -->
@@ -124,6 +138,7 @@
                 <div>
                     <h4 class="text-base font-semibold text-slate-200">Interactive Latin Speech Recognition Demo</h4>
                     <p class="text-xs text-slate-400 max-w-md mx-auto mt-1">Load the Hugging Face Space model container to record audio or upload sample files for live inference.</p>
+                    <p class="text-[11px] text-slate-500 max-w-md mx-auto mt-1">The Space may take 30–60 seconds to wake up if it has been idle.</p>
                 </div>
                 <div class="flex flex-wrap justify-center gap-3">
                     <button id="load-hf-space-btn" class="px-4 py-2 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-950 text-xs font-semibold transition-all shadow-md shadow-sky-500/20">
@@ -134,7 +149,7 @@
                     </a>
                 </div>
             </div>
-            <iframe id="hf-space-iframe" class="hidden w-full h-[450px] border-0" data-src="https://njand-latin-asr-demo.hf.space" title="Latin ASR Gradio Demo"></iframe>
+            <iframe id="hf-space-iframe" class="hidden w-full h-[450px] border-0" data-src="https://njand-latin-asr-demo.hf.space" allow="microphone" title="Latin ASR Gradio Demo"></iframe>
         </div>
     </div>
 
@@ -145,7 +160,7 @@
                 <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">LLM Benchmarking & Computer-Assisted Language Learning</span>
                 <h3 class="text-2xl font-bold text-slate-50 mt-2">Multilingual Grammatical Error Correction (GEC) System</h3>
             </div>
-            <div class="text-xs text-slate-400 font-mono bg-slate-950/80 px-3 py-1.5 rounded-lg border border-slate-800">Role: Lead NLP Researcher</div>
+            <div class="text-xs text-slate-400 font-mono bg-slate-950/80 px-3 py-1.5 rounded-lg border border-slate-800">Role: NLP Research Lead</div>
         </div>
 
         <!-- Tech Stack Badges -->
@@ -162,7 +177,7 @@
             <!-- Main Narrative & Engineering Highlights -->
             <div class="lg:col-span-2 space-y-4 text-sm text-slate-300 leading-relaxed">
                 <p>
-                    Architected an LLM-powered Grammatical Error Correction (GEC) and pedagogical feedback engine targeting novice language learners across 60+ languages. Built an automated multi-model evaluation harness, dynamic prompt engineering pipeline, and educator-driven QA framework to benchmark LLM outputs against strict safety and accuracy thresholds.
+                    Architected an LLM-powered Grammatical Error Correction (GEC) and pedagogical feedback engine, adapted to learner proficiency, targeting novice language learners across 60+ languages. Built an automated multi-model evaluation harness, dynamic prompt engineering pipeline, and educator-driven QA framework to benchmark LLM outputs against strict safety and accuracy thresholds.
                 </p>
                 <ul class="space-y-2 list-disc list-inside text-slate-400 marker:text-sky-400">
                     <li>
@@ -175,7 +190,7 @@
                         <strong class="text-slate-200">Large-Scale Educator Coordination:</strong> Coordinated evaluation workflows with dozens of qualified teachers and tutors across 60+ languages to score model feedback, analyze error patterns, and isolate language-specific failure modes.
                     </li>
                     <li>
-                        <strong class="text-slate-200">Iterative Optimization & Global Scale:</strong> Systematically iterated on model selection, prompt design, and few-shot examples for failing languages until meeting release criteria—successfully launching GEC feedback across <strong class="text-slate-200">41 target languages</strong> for over 5,000 users annually.
+                        <strong class="text-slate-200">Iterative Optimization & Global Scale:</strong> Systematically iterated on model selection, prompt design, and few-shot examples for failing languages until meeting release criteria—successfully launching GEC feedback across <strong class="text-slate-200">41 target languages</strong> for over 5,000 learners annually.
                     </li>
                 </ul>
             </div>
